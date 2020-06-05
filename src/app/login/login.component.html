@@ -1,0 +1,89 @@
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="login-form"
+  #f="ngForm"
+  (ngSubmit)="submitForm(f)"
+>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <nz-input-group nzPrefixIcon="user">
+        <input
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="Username"
+        />
+      </nz-input-group>
+      <div
+        *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="userName.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="userName.errors.INVALID_EMAIL">
+          {{ userName.errors.INVALID_EMAIL }}
+        </div>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="lock">
+        <input
+          type="password"
+          nz-input
+          formControlName="password"
+          placeholder="Password"
+        />
+      </nz-input-group>
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="password.errors?.required">
+          Password is required.
+        </div>
+        <div *ngIf="password.errors?.WRONG_PASSWORD">
+          {{ password.errors?.WRONG_PASSWORD }}
+        </div>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <div *ngIf="validateForm.errors" class="alert alert-danger">
+    <div *ngIf="validateForm.errors?.USER_DISABLED">
+      {{ validateForm.errors?.USER_DISABLED }}
+    </div>
+    <div *ngIf="validateForm.errors?.USER_NOT_FOUND">
+      {{ validateForm.errors?.USER_NOT_FOUND }}
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="24">
+      <a class="login-form-forgot" routerLink="reset">Forgot password</a>
+    </div>
+  </div>
+  <button
+    nz-button
+    nz-type="primary"
+    class="login-form-button login-form-margin ant-btn ant-btn-primary"
+  >
+    Log in
+  </button>
+  <div class="w-100">Or</div>
+  <div class="w-100 mt-2 mb-2">
+    <button nz-button class="facebook" (click)="otherLogin('facebook')">
+      <i nz-icon nzType="facebook"></i>Facebook
+    </button>
+    <button
+      nz-button
+      nzType="default"
+      class="google"
+      (click)="otherLogin('google')"
+    >
+      <i nz-icon nzType="google"></i>Google
+    </button>
+  </div>
+  Or <a [routerLink]="['register']"> register now! </a>
+</form>

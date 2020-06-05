@@ -1,0 +1,591 @@
+<ng-container *ngIf="order; else elseTemplate">
+  <nz-result
+    nzStatus="success"
+    nzTitle="Order has been placed Successfully!"
+    [nzSubTitle]="orderText"
+  >
+    <div nz-result-extra>
+      <button
+        nz-button
+        class="ant-btn ant-btn-primary"
+        (click)="moveToConsole()"
+        nzType="primary"
+      >
+        Go Console
+      </button>
+      <button class="ant-btn ant-btn-primary" (click)="moveToFleet()" nz-button>
+        Place another order
+      </button>
+    </div>
+  </nz-result>
+  <ng-template #orderText>
+    Order number: {{ order.id }} We will contact you soon for confirmation. See
+    order details in console..
+  </ng-template>
+</ng-container>
+<ng-template #elseTemplate>
+  <nz-steps nzType="navigation" [nzCurrent]="current" [nzStatus]="status">
+    <nz-step
+      nzTitle="Order Details"
+      nzDescription="Select reservation details."
+    ></nz-step>
+    <nz-step nzTitle="Extra" nzDescription="Select extra addons."></nz-step>
+    <nz-step
+      nzTitle="Place Order"
+      nzDescription="Sign and place order."
+    ></nz-step>
+  </nz-steps>
+  <div class="steps-content" *ngIf="car">
+    <div [ngSwitch]="current">
+      <div *ngSwitchCase="0">
+        <div class="row vehicle-row">
+          <div class="col-md-3">
+            <div class="img-fluid">
+              <img [src]="car.gallery[0]" class="img-thumbnail" />
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="meta">
+              <a class="display-4" [routerLink]="['/fleet', car.id]">
+                <span class="text-muted">{{ car.year }}</span>
+                {{ car.brand }} {{ car.model }}
+              </a>
+              <span class="price float-right">
+                From
+                <strong>{{ car?.price }} PKR </strong>
+                per day
+              </span>
+
+              <ul class="specs">
+                <li>{{ car.exteriorColor }}</li>
+                <li>{{ car.condition }}</li>
+                <li>{{ car.bodyStyle }}</li>
+                <li>{{ car.transmission }}</li>
+                <li>{{ car.mileage }} KM/L</li>
+                <li>{{ car.fuelType }}</li>
+              </ul>
+              <p nz-typography>{{ car.description | slice: 1:250 }}...</p>
+            </div>
+          </div>
+        </div>
+        <form class="form" ngForm #firstForm="ngForm">
+          <div class="form-row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="pLocation">Pickup Location</label>
+                    <select
+                      class="custom-select"
+                      name="pLocation"
+                      id="pLocation"
+                      [(ngModel)]="pickupLocation"
+                      #pickuplocation="ngModel"
+                      required
+                    >
+                      <option value="" selected>Select one</option>
+                      <option
+                        *ngFor="let city of uniqueCityList$ | async"
+                        [value]="city"
+                        >{{ city }}</option
+                      >
+                    </select>
+                    <div
+                      *ngIf="pickuplocation.touched && pickuplocation.invalid"
+                      class="alert alert-danger"
+                    >
+                      Please select pickup location.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="pDate">Pickup Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="pDate"
+                      id="pDate"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      ngModel
+                      #pdate="ngModel"
+                      [(ngModel)]="pickUpDate"
+                      (ngModelChange)="calculateDays()"
+                      required
+                    />
+                    <small
+                      id="helpId"
+                      class="form-text text-muted"
+                      [ngClass]="{
+                        'alert-danger': pdate.invalid && pdate.touched,
+                        alert: pdate.invalid && pdate.touched
+                      }"
+                      >Enter the pickup date.</small
+                    >
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="pTime">Pickup Time</label>
+                    <input
+                      type="time"
+                      class="form-control"
+                      name="pTime"
+                      id="pTime"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      [(ngModel)]="pickupTime"
+                      #ptime="ngModel"
+                      required
+                    />
+                    <small
+                      id="helpId"
+                      class="form-text text-muted"
+                      [ngClass]="{
+                        'alert-danger': ptime.invalid && ptime.touched,
+                        alert: ptime.invalid && ptime.touched
+                      }"
+                      >Enter the pickup Time.</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="rLocation">Return Location</label>
+                    <select
+                      class="custom-select"
+                      name="rLocation"
+                      id="rLocation"
+                      [(ngModel)]="returnLocation"
+                      #returnlocation="ngModel"
+                      required
+                    >
+                      <option value="" selected>Select one</option>
+                      <option
+                        *ngFor="let city of uniqueCityList$ | async"
+                        [value]="city"
+                        >{{ city }}</option
+                      >
+                    </select>
+                    <div
+                      *ngIf="returnlocation.touched && returnlocation.invalid"
+                      class="alert alert-danger"
+                    >
+                      Please select return location.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="rDate">Return Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="rDate"
+                      id="rDate"
+                      aria-describedby="helpId"
+                      ngModel
+                      #rdate="ngModel"
+                      [(ngModel)]="returnDate"
+                      (ngModelChange)="calculateDays()"
+                      required
+                    />
+                    <small
+                      id="helpId"
+                      class="form-text text-muted"
+                      [ngClass]="{
+                        'alert-danger': rdate.invalid && rdate.touched,
+                        alert: rdate.invalid && rdate.touched
+                      }"
+                      >Enter the Return date.</small
+                    >
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="rTime">Return Time</label>
+                    <input
+                      type="time"
+                      class="form-control"
+                      name="rTime"
+                      id="rTime"
+                      aria-describedby="helpId"
+                      [(ngModel)]="returnTime"
+                      #rtime="ngModel"
+                      required
+                    />
+                    <small
+                      id="helpId"
+                      class="form-text text-muted"
+                      [ngClass]="{
+                        'alert-danger': rtime.invalid && rtime.touched,
+                        alert: rtime.invalid && rtime.touched
+                      }"
+                      >Enter the Return Time.</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row" style="margin-top: 30px;">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <label for="prices">Prices</label>
+              <table id="prices" class="table">
+                <tbody>
+                  <tr>
+                    <td scope="row">24 Hours</td>
+                    <td style="text-align: right;">{{ car.price }} PKR</td>
+                  </tr>
+                  <tr *ngFor="let price of car.prices">
+                    <td scope="row">{{ price.days }}+ days</td>
+                    <td style="text-align: right;">{{ price.price }} PKR</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="small-details">
+                <table id="prices" class="table">
+                  <tbody>
+                    <tr>
+                      <td style="border-top: none;" scope="row">
+                        Nnumber of Days
+                      </td>
+                      <td
+                        style="border-top: none !important;"
+                        class="bold"
+                        *ngIf="noDays; else empty"
+                        style="text-align: right;"
+                      >
+                        {{ noDays }} Days
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Dates</td>
+                      <td
+                        *ngIf="returnDate && pickUpDate; else empty"
+                        style="text-align: right;"
+                        class="bold"
+                      >
+                        {{ pickUpDate }} - {{ returnDate }}
+                      </td>
+                      <ng-template #empty>__</ng-template>
+                    </tr>
+                    <tr>
+                      <td scope="row">Time</td>
+                      <td
+                        *ngIf="returnDate && pickUpDate; else empty"
+                        style="text-align: right;"
+                        class="bold"
+                      >
+                        {{ ptime.value }} - {{ rtime.value }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row" class="bold">Bill</td>
+                      <td *ngIf="bill; else empty" style="text-align: right;">
+                        {{ bill }} PKR
+                      </td>
+                      <ng-template #empty>__</ng-template>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="w-100 mt-4">
+          <div *ngIf="emptyError.error" class="error-container11">
+            <nz-alert
+              nzType="error"
+              nzCloseable
+              [nzMessage]="emptyError.title"
+              [nzDescription]="emptyError.desc"
+            >
+            </nz-alert>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="1">
+        <div class="row vehicle-row mb-4">
+          <div class="col-md-3">
+            <div class="img-fluid">
+              <img [src]="car.gallery[0]" class="img-thumbnail" />
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="meta">
+              <a class="display-4" [routerLink]="['/fleet', car.id]">
+                <span class="text-muted">{{ car.year }}</span>
+                {{ car.brand }} {{ car.model }}
+              </a>
+              <span class="price float-right">
+                From
+                <strong>{{ car?.price }} PKR </strong>
+                per day
+              </span>
+
+              <ul class="specs">
+                <li>{{ car.exteriorColor }}</li>
+                <li>{{ car.condition }}</li>
+                <li>{{ car.bodyStyle }}</li>
+                <li>{{ car.transmission }}</li>
+                <li>{{ car.mileage }} KM/L</li>
+                <li>{{ car.fuelType }}</li>
+              </ul>
+              <p nz-typography>{{ car.description | slice: 1:250 }}...</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="small-details">
+              <table id="prices" class="table">
+                <tbody>
+                  <tr>
+                    <td style="border-top: none;" scope="row">
+                      Nnumber of Days
+                    </td>
+                    <td
+                      style="border-top: none !important;"
+                      class="bold"
+                      *ngIf="noDays; else empty"
+                      style="text-align: right;"
+                    >
+                      {{ noDays }} Days
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Dates</td>
+                    <td
+                      *ngIf="returnDate && pickUpDate; else empty"
+                      style="text-align: right;"
+                      class="bold"
+                    >
+                      {{ pickUpDate }} - {{ returnDate }}
+                    </td>
+                    <ng-template #empty>__</ng-template>
+                  </tr>
+                  <tr>
+                    <td scope="row">Time</td>
+                    <td
+                      *ngIf="returnDate && pickUpDate; else empty"
+                      style="text-align: right;"
+                      class="bold"
+                    >
+                      {{ pickupTime }} - {{ returnTime }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td scope="row" class="bold">Total Bill:</td>
+                    <td *ngIf="bill; else empty" style="text-align: right;">
+                      {{ bill }} PKR
+                    </td>
+                    <ng-template #empty>__</ng-template>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <label>Extras</label>
+            <div class="extra" *ngFor="let extra of car.extras">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    [name]="extra.id"
+                    [id]="extra.id"
+                    value="true"
+                    ngModel
+                    (ngModelChange)="changeExtra(extra)"
+                  />
+                  <div class="float-left">{{ extra.name }}</div>
+                  <div class="float-right bold">{{ extra.Price }} PKR</div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="2">
+        <div class="row">
+          <div class="col-12">
+            <div
+              *ngIf="user$ | async as user; else notLoggedIn"
+              class="w-100 mb-4"
+            >
+              <nz-avatar
+                nzIcon="user"
+                nzSize="large"
+                [nzSrc]="user.photoURL"
+              ></nz-avatar>
+              <h4>{{ user.displayName }}</h4>
+            </div>
+
+            <nz-descriptions
+              nzTitle="Order Details"
+              nzBordered
+              [nzSize]="'default'"
+            >
+              <ng-container *ngIf="user$ | async as user">
+                <nz-descriptions-item nzTitle="Contact Person">
+                  <span class="bold">{{ user?.displayName }}</span>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Contact email">
+                  <span class="bold">{{ user?.email }}</span>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Order date">
+                  <span class="bold">{{ timenow() }}</span>
+                </nz-descriptions-item>
+              </ng-container>
+
+              <nz-descriptions-item nzTitle="Pikcup Location">{{
+                pickupLocation
+              }}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Pikcup Date">{{
+                pickUpDate
+              }}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Pikcup Date">{{
+                pickupTime
+              }}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Return Location">{{
+                returnLocation
+              }}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Return Date">{{
+                returnDate
+              }}</nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Return Date">{{
+                returnTime
+              }}</nz-descriptions-item>
+
+              <nz-descriptions-item nzTitle="Vehicle details">
+                <span class="bold">Vehicle: </span> {{ car.model }} <br />
+                <span class="bold">Vehicle brand: </span> {{ car.brand }} <br />
+                <span class="bold">Vehicle make: </span> {{ car.year }} <br />
+                <span class="bold">Number of days: </span> {{ noDays }}
+              </nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Extras">
+                <ng-container *ngFor="let item of extras">
+                  {{ item.name }} - {{ item.Price }} PKR
+                  <br />
+                </ng-container>
+              </nz-descriptions-item>
+              <nz-descriptions-item nzTitle="Total Outstanding">
+                {{ bill }} PKR
+              </nz-descriptions-item>
+            </nz-descriptions>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #notLoggedIn
+  ><div class="row">
+    <div class="col-12">
+      <nz-alert
+        nzType="error"
+        nzMessage="You are not logged in. Click below button to login."
+      ></nz-alert>
+    </div>
+    <div class="col-12">
+      <form
+        nz-form
+        [formGroup]="validateForm"
+        class="login-form"
+        #f="ngForm"
+        (ngSubmit)="submitForm(f)"
+        class="ant-form-inline"
+      >
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input
+                type="text"
+                nz-input
+                formControlName="userName"
+                placeholder="Username"
+              />
+            </nz-input-group>
+            <div
+              *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="userName.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="userName.errors.INVALID_EMAIL">
+                {{ userName.errors.INVALID_EMAIL }}
+              </div>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group nzPrefixIcon="lock">
+              <input
+                type="password"
+                nz-input
+                formControlName="password"
+                placeholder="Password"
+              />
+            </nz-input-group>
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="password.errors?.required">
+                Password is required.
+              </div>
+              <div *ngIf="password.errors?.WRONG_PASSWORD">
+                {{ password.errors?.WRONG_PASSWORD }}
+              </div>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        <div *ngIf="validateForm.errors" class="alert alert-danger">
+          <div *ngIf="validateForm.errors?.USER_DISABLED">
+            {{ validateForm.errors?.USER_DISABLED }}
+          </div>
+          <div *ngIf="validateForm.errors?.USER_NOT_FOUND">
+            {{ validateForm.errors?.USER_NOT_FOUND }}
+          </div>
+        </div>
+
+        <button
+          nz-button
+          nz-type="primary"
+          class="login-form-button login-form-margin ant-btn ant-btn-primary"
+        >
+          Log in
+        </button>
+        <div class="w-100">Or</div>
+        <div class="w-100 mt-2 mb-2">
+          <button nz-button class="facebook" (click)="otherLogin('facebook')">
+            <i nz-icon nzType="facebook"></i>Facebook
+          </button>
+          <button
+            nz-button
+            nzType="default"
+            class="google"
+            (click)="otherLogin('google')"
+          >
+            <i nz-icon nzType="google"></i>Google
+          </button>
+        </div>
+      </form>
+    </div>
+  </div></ng-template
+>

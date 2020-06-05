@@ -1,0 +1,415 @@
+<div class="container mt-4">
+  <div class="row">
+    <ng-container *ngIf="car$ | async as car; else notfound">
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="car-info">
+          <h1 nz-typography>
+            <span class="text-muted">{{ car.year }}</span> {{ car.brand }}
+            {{ car.model }} {{ car.transmission }}
+          </h1>
+          <div class="text-uppercase sidebar-car-meta">
+            <p>
+              {{ car.exteriorColor }}, {{ car.transmission }} Emission Type,
+              {{ car.engine.engineVolume }} Engine Volume,
+              {{ car.engine.horsePower }} hp, {{ car.engine.tourque }} Torque,
+              {{ car.engine.noOfCylinder }} Cylenders
+            </p>
+          </div>
+          <nz-carousel [nzEffect]="'fade'" [nzDotPosition]="'left'" nzAutoPlay>
+            <div nz-carousel-content *ngFor="let img of car.gallery">
+              <img [src]="img" />
+            </div>
+          </nz-carousel>
+          <div style="margin-top: 20px;">
+            <nz-tabset>
+              <nz-tab [nzTitle]="overview">
+                <ng-template #overview>
+                  <i nz-icon [nzType]="'bars'"></i>Overview
+                </ng-template>
+                <div class="tab-content">
+                  {{ car.description }}
+                </div>
+              </nz-tab>
+              <nz-tab [nzTitle]="specifications">
+                <ng-template #specifications>
+                  <i nz-icon [nzType]="'bar-chart'"></i>Specification
+                </ng-template>
+
+                <div class="tab-content">
+                  <div class="rentify-specifications-block">
+                    <div class="rentify-specifications-title">
+                      <h4 class="heading">Engine</h4>
+                    </div>
+
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Number of cylinders</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{
+                              car.engine.noOfCylinder
+                            }}</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Engine volume (L)</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{
+                              car.engine.engineVolume
+                            }}</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Horsepower</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.engine.horsePower }}</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Torque</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.engine.tourque }}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="rentify-specifications-block">
+                    <div class="rentify-specifications-title">
+                      <h4 class="heading">Fuel Economy</h4>
+                    </div>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >City</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.mileage }} KM/L</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Highway</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.fuel.highway }} KM/L</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Combined</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.fuel.combined }} KM/L</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Fuel Tank</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6"
+                              >{{ car.fuel.fuelTank }} Gallons</span
+                            >
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Emissions Class</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.fuel.emissionClass }}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="rentify-specifications-block">
+                    <div class="rentify-specifications-title">
+                      <h4 class="heading">Transmission</h4>
+                    </div>
+
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Type</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{ car.transmission }}</span>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <span class="rentify-specifications-label"
+                              >Displacement</span
+                            >
+                          </td>
+                          <td class="text-right">
+                            <span class="h6">{{
+                              car.emission.displacement
+                            }}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </nz-tab>
+              <nz-tab [nzTitle]="features">
+                <ng-template #features>
+                  <i nz-icon [nzType]="'star'"></i>Features
+                </ng-template>
+                <div class="tabs-content">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Safety</h4>
+                        </div>
+
+                        <ul class="list-unstyled checked">
+                          <li *ngFor="let item of car.safety">{{ item }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Exterior</h4>
+                        </div>
+
+                        <ul class="list-unstyled checked">
+                          <li *ngFor="let item of car.exterior">{{ item }}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Comfort</h4>
+                        </div>
+
+                        <ul class="list-unstyled checked">
+                          <li *ngFor="let item of car.comfort">{{ item }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Interior</h4>
+                        </div>
+
+                        <ul class="list-unstyled checked">
+                          <li *ngFor="let item of car.interior">{{ item }}</li>
+                        </ul>
+                      </div>
+
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Visibility</h4>
+                        </div>
+
+                        <ul class="list-unstyled">
+                          <li *ngFor="let item of car.visibility">
+                            {{ item }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">Multimedia</h4>
+                        </div>
+
+                        <ul class="list-unstyled checked">
+                          <li *ngFor="let item of car.multimedia">
+                            {{ item }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nz-tab>
+              <nz-tab [nzTitle]="location">
+                <ng-template #location>
+                  <i nz-icon [nzType]="'pushpin'"></i>Location
+                </ng-template>
+                <div class="tab-content">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="column-blk">
+                        <div class="title">
+                          <h4 class="heading">
+                            Availablity
+                          </h4>
+                        </div>
+
+                        <ol class="list-unstyled">
+                          <li *ngFor="let item of car.locations">
+                            {{ item }}
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nz-tab>
+            </nz-tabset>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="widget rentify-rent-price-list">
+          <span class="rent-price-title">Rent Prices</span>
+          <ul>
+            <li class="clearfix">
+              <span class="pull-left">24 Hours</span>
+              <span class="pull-right">
+                <b>{{ car.price }} PKR</b>
+              </span>
+            </li>
+            <li *ngFor="let price of car.prices" class="clearfix">
+              <span class="pull-left">{{ price.days }} Days</span>
+              <span class="pull-right">
+                <b>{{ price.price }} PKR</b>
+              </span>
+            </li>
+          </ul>
+          <div class="text-center mt-5">
+            <a href="#" class="btn btn-primary float-none text-center"
+              >Reserve Now <i class="fa fa-angle-right"></i
+            ></a>
+          </div>
+        </div>
+        <div class="widget rentify-car-fuel-consumption">
+          <div class="text-left rentify-fuel-consumption">
+            <div class="fuel-consumption-unit">
+              <div class="fuel-consumption-value">{{ car.mileage }}</div>
+              <div class="fuel-consumption-label">City KM/L</div>
+            </div>
+            <div class="fuel-consumption-icon">
+              <span>
+                <svg
+                  style="
+                    color: white;
+                    width: 30px;
+                    height: 72px;
+                    text-indent: 10px;
+                  "
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  height="200"
+                  width="200"
+                  fill="#ffff"
+                  version="1.1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 100 100"
+                  enable-background="new 0 0 100 100"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      d="M89.417,36.305c0.18-1.034-0.144-2.146-0.953-2.877l-11.045-9.943c-1.193-1.071-3.198-1.139-4.459-0.146l-1.392,1.098   l0.55-7.6c0.116-1.6-1.102-2.907-2.705-2.907h-4.241V7.292C65.172,3.281,61.892,0,57.88,0H17.819c-4.011,0-7.292,3.281-7.292,7.292   V92.71c0,4.009,3.281,7.29,7.292,7.29H57.88c4.012,0,7.292-3.281,7.292-7.29V70.482h0.241c1.604,0,2.915-1.312,2.915-2.916v-1.449   c1.66,0.897,3.29,2.75,3.75,6.534c0.553,4.566-0.074,8.193-0.579,11.107c-0.301,1.734-0.56,3.231-0.56,4.679   c0,6.78,4.317,10.439,8.38,10.439c2.228,0,4.346-1.059,5.812-2.9c1.49-1.877,2.278-4.481,2.278-7.539   c0-5.536-0.67-10.292-1.318-14.894c-0.787-5.587-1.537-10.905-1.138-17.48c1.454-0.025,2.705-1.127,2.854-2.608l1.653-16.373   C89.488,36.812,89.464,36.554,89.417,36.305z M27.008,35.317c-1.512,0-2.738-1.227-2.738-2.737c0-1.515,1.227-2.738,2.738-2.738   c1.513,0,2.738,1.224,2.738,2.738C29.746,34.091,28.521,35.317,27.008,35.317z M37.851,35.317c-1.511,0-2.737-1.227-2.737-2.737   c0-1.515,1.227-2.738,2.737-2.738c1.514,0,2.739,1.224,2.739,2.738C40.59,34.091,39.364,35.317,37.851,35.317z M48.694,35.317   c-1.512,0-2.737-1.227-2.737-2.737c0-1.515,1.226-2.738,2.737-2.738c1.513,0,2.739,1.224,2.739,2.738   C51.434,34.091,50.207,35.317,48.694,35.317z M59.258,19.937c0,1.604-1.313,2.916-2.917,2.916H19.359   c-1.604,0-2.916-1.312-2.916-2.916v-9.825c0-1.604,1.312-2.916,2.916-2.916h36.981c1.604,0,2.917,1.312,2.917,2.916V19.937z    M81.167,92.824c-1.734,2.182-5.164,0.629-5.164-4.387c0-1.012,0.226-2.311,0.485-3.813c0.531-3.07,1.259-7.277,0.616-12.583   c-0.829-6.815-4.753-10.178-8.776-11.322v-1.161c0-1.604-1.312-2.916-2.915-2.916h-0.241v-13.07h2.096   c1.604,0,3.011-1.308,3.127-2.907l0.331-4.587l7.198,3.511l-0.065,12.875c-0.008,1.316,0.871,2.512,2.067,2.993   c-0.468,7.242,0.35,13.108,1.15,18.797c0.653,4.629,1.27,9.003,1.27,14.185C82.346,90.31,81.927,91.868,81.167,92.824z"
+                    ></path>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="fuel-consumption-unit">
+              <div class="fuel-consumption-value">{{ car.fuel.highway }}</div>
+              <div class="fuel-consumption-label">Highway KM/L</div>
+            </div>
+          </div>
+        </div>
+        <div class="widget rentify-car-specifications">
+          <table>
+            <tbody>
+              <tr>
+                <td class="label">Mileage</td>
+                <td class="value">KM/L</td>
+              </tr>
+
+              <tr>
+                <td class="label">Condition</td>
+                <td class="value">{{ car.condition }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Body Style</td>
+                <td class="value">{{ car.bodyStyle }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Displacement</td>
+                <td class="value">{{ car.emission.displacement }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Transmission</td>
+                <td class="value">{{ car.transmission }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Fuel</td>
+                <td class="value">{{ car.fuelType }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Exterior Color</td>
+                <td class="value">{{ car.exteriorColor }}</td>
+              </tr>
+
+              <tr>
+                <td class="label">Interior Color</td>
+                <td class="value">{{ car.interiorColor }}</td>
+              </tr>
+              <tr>
+                <td class="label">Stock</td>
+                <td class="value">{{ car?.id }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #notfound> </ng-template>

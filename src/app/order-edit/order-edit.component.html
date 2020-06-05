@@ -1,0 +1,252 @@
+<nz-spin [nzSpinning]="this.loading">
+  <div class="row">
+    <div class="col-lg-12">
+      <div *ngIf="order?.car | async as car" class="row pb-2 mb-3">
+        <div class="row vehicle-row">
+          <div class="col-md-4">
+            <div class="img-fluid">
+              <img [src]="(car?.gallery)[0]" class="img-thumbnail" />
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="meta">
+              <a class="display-4" [routerLink]="['/fleet', car.id]">
+                <span class="text-muted">{{ car.year }}</span>
+                {{ car.brand }} {{ car.model }}
+              </a>
+              <span class="price float-right">
+                From
+                <strong>{{ car?.price }} PKR </strong>
+                per day
+              </span>
+
+              <ul class="specs">
+                <li>{{ car.exteriorColor }}</li>
+                <li>{{ car.condition }}</li>
+                <li>{{ car.bodyStyle }}</li>
+                <li>{{ car.transmission }}</li>
+                <li>{{ car.mileage }} KM/L</li>
+                <li>{{ car.fuelType }}</li>
+              </ul>
+              <p nz-typography>{{ car.description | slice: 1:250 }}...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <form [formGroup]="this.orderForm" (ngSubmit)="submitOrderForm()">
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="orderId">Order Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="orderId"
+                    id="orderId"
+                    aria-describedby="orderId"
+                    formControlName="id"
+                    disabled
+                  />
+                  <small id="orderId" class="form-text text-muted"
+                    >Order id created while placing order.</small
+                  >
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label for="orderDate">Order Date</label>
+                  <input
+                    type="datetime"
+                    class="form-control"
+                    name="orderDate"
+                    id="orderDate"
+                    aria-describedby="orderDate"
+                    formControlName="orderDate"
+                    disabled
+                  />
+                  <small id="orderDate" class="form-text text-muted"
+                    >On this date, order was placed.</small
+                  >
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <form [formGroup]="this.orderForm" (ngSubmit)="submitOrderForm()">
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <div formGroupName="pickup">
+                    <div
+                      *ngIf="this.locations$ | async as locations"
+                      class="form-group"
+                    >
+                      <label for="pickupLocation">Pickup Location</label>
+                      <select
+                        class="form-control"
+                        name="pickupLocation"
+                        id="pickupLocation"
+                        formControlName="location"
+                      >
+                        <option *ngFor="let item of locations" [value]="item">{{
+                          item
+                        }}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="pickupTIme">Pickup Time</label>
+                      <input
+                        type="time"
+                        class="form-control"
+                        name="pickupTIme"
+                        id="pickupTIme"
+                        aria-describedby="pickupTime"
+                        formControlName="time"
+                      />
+                      <small id="pickupTime" class="form-text text-muted"
+                        >Pickup Time</small
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="pickupDate">Pickup Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="pickupDate"
+                        id="pickupDate"
+                        aria-describedby="pickupDate"
+                        formControlName="date"
+                      />
+                      <small id="pickupDate" class="form-text text-muted"
+                        >Pickup Date</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div formGroupName="return">
+                  <div
+                    *ngIf="this.locations$ | async as locations"
+                    class="form-group"
+                  >
+                    <label for="returnLocation">Pickup Location</label>
+                    <select
+                      class="form-control"
+                      name="returnLocation"
+                      id="returnLocation"
+                      formControlName="location"
+                    >
+                      <option *ngFor="let item of locations" [value]="item">{{
+                        item
+                      }}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="returnTime">Return Date</label>
+                    <input
+                      type="time"
+                      class="form-control"
+                      name="returnTime"
+                      id="returnTime"
+                      aria-describedby="helpId"
+                      formControlName="time"
+                    />
+                    <small id="helpId" class="form-text text-muted"
+                      >Help text</small
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="returnDate">Return Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="returnDate"
+                      id="returnDate"
+                      aria-describedby="returnDate"
+                      placeholder=""
+                      formControlName="date"
+                    />
+                    <small id="returnDate" class="form-text text-muted"
+                      >Return Date</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div formArrayName="extras" class="col-lg-12 col-md-12 col-sm-12">
+                <div *ngFor="let extra of this.extras.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <div class="form-group">
+                      <label for="name">Name</label
+                      ><button
+                        class="btn btn-danger remove"
+                        (click)="removeExtras(i)"
+                      >
+                        Remove
+                      </button>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                        aria-describedby="name"
+                        formControlName="name"
+                      />
+                      <small id="name" class="form-text text-muted"
+                        >Enter extra offer title.</small
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="price">Price</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        id="price"
+                        aria-describedby="price"
+                        formControlName="Price"
+                      />
+                      <small id="price" class="form-text text-muted"
+                        >Enter price for extra offering.</small
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-primary mb-5"
+                  (click)="addExtras()"
+                >
+                  Add more extra.
+                </button>
+              </div>
+            </div>
+            <button type="submit" value="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      <!--
+      <div *ngIf="order.user | async as user" class="row">
+        <div class="col-1">
+          <nz-avatar
+            [nzShape]="'square'"
+            [nzSize]="64"
+            [nzSrc]="user?.photoUrl"
+          ></nz-avatar>
+        </div>
+        <div class="col-11">
+          <h3>{{ user?.name }}</h3>
+          <h5 style="font-weight: normal;">{{ user?.email }}</h5>
+        </div>
+      </div>--->
+    </div>
+  </div>
+</nz-spin>

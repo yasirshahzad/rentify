@@ -1,0 +1,21 @@
+#contact {
+  height: 500px;
+}
+.map-content-wrapper {
+  position: absolute;
+  z-index: 0000;
+  padding: 75px 50px;
+  padding-bottom: 30px;
+  width: 100%;
+  max-width: 560px;
+  bottom: 0;
+  right: 0;
+  margin-right: -60px;
+  background: #f0f7ff;
+}
+.logo-map {
+  margin-bottom: 34px;
+}
+#form {
+  background-color: #f0f7ff;
+}

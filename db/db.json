@@ -1,0 +1,1933 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "model": "A3",
+      "brand": "Audi",
+      "year": "2011",
+      "condition": "New",
+      "bodyStyle": "Sedan",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 90,
+      "mileage": 16,
+      "fuelType": "Petrol",
+      "transmission": "Automatic",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "model": "Caltus",
+      "brand": "BMW",
+      "year": "2014",
+      "condition": "New",
+      "bodyStyle": "Couple",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "price": 74,
+      "mileage": 20,
+      "fuelType": "Diesel",
+      "transmission": "Manual",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 3,
+      "model": "Caltus",
+      "brand": "BMW",
+      "year": "2014",
+      "condition": "New",
+      "bodyStyle": "SUV",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 74,
+      "mileage": 18,
+      "transmission": "Semi-Automatic",
+      "fuelType": "Gas",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 4,
+      "model": "Hwai",
+      "brand": "Honda",
+      "year": "2014",
+      "condition": "New",
+      "bodyStyle": "Van",
+      "interiorColor": "Red",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 74,
+      "mileage": 20,
+      "transmission": "Automatic",
+      "fuelType": "Petrol",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 5,
+      "model": "Caltus",
+      "brand": "BMW",
+      "year": "2014",
+      "condition": "New",
+      "bodyStyle": "Van",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Islamabad",
+        "Karachi"
+      ],
+      "price": 74,
+      "mileage": 14,
+      "transmission": "Manual",
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "fuelType": "Diesel",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 6,
+      "model": "Caltus",
+      "brand": "BMW",
+      "year": "2014",
+      "condition": "New",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "bodyStyle": "Couple",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 74,
+      "mileage": 16,
+      "transmission": "Manual",
+      "fuelType": "Petrol",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 7,
+      "model": "Caltus",
+      "brand": "BMW",
+      "year": "2014",
+      "condition": "New",
+      "bodyStyle": "Sedan",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 74,
+      "mileage": 18,
+      "transmission": "Semi-Automatic",
+      "fuelType": "Gas",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 8,
+      "model": "Crolla",
+      "brand": "Toyota",
+      "year": "2017",
+      "condition": "New",
+      "bodyStyle": "SUV",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 45,
+      "fuelType": "Diesel",
+      "transmission": "Automatic",
+      "mileage": 18,
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 9,
+      "model": "Fortuner",
+      "brand": "Toyota",
+      "year": "2020",
+      "condition": "New",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "bodyStyle": "Couple",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 34,
+      "transmission": "Semi-Automatic",
+      "fuelType": "Petrol",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 10,
+      "model": "City",
+      "brand": "Honda",
+      "year": "2004",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "condition": "New",
+      "bodyStyle": "Van",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 34,
+      "fuelType": "Gas",
+      "transmission": "Automatic",
+      "mileage": 22,
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 11,
+      "model": "BRV",
+      "brand": "Honda",
+      "year": "2012",
+      "condition": "New",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "bodyStyle": "SUV",
+      "interiorColor": "Red",
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 34,
+      "fuelType": "Petrol",
+      "mileage": 30,
+      "transmission": "Automatic",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    },
+    {
+      "id": 12,
+      "model": "Mehran",
+      "brand": "BMW",
+      "year": "2019",
+      "condition": "New",
+      "bodyStyle": "SUV",
+      "interiorColor": "Red",
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "gallery": [
+        "/assets/cars/1.jpg",
+        "/assets/cars/2.jpg",
+        "/assets/cars/3.jpg",
+        "/assets/cars/4.jpg"
+      ],
+      "exteriorColor": "Blue",
+      "description": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "locations": [
+        "Lahore",
+        "Multan"
+      ],
+      "price": 34,
+      "fuelType": "Gas",
+      "mileage": 20,
+      "transmission": "Semi-Automatic",
+      "prices": [
+        {
+          "days": 3,
+          "price": 20
+        },
+        {
+          "days": 7,
+          "price": 18
+        },
+        {
+          "days": 30,
+          "price": 15
+        }
+      ],
+      "safety": [
+        "ABS",
+        "Alarm/anti-theft system",
+        "Blind spot monitor",
+        "Central locking",
+        "Driver airbag",
+        "Knees airbag",
+        "Passenger airbag",
+        "Precolission system",
+        "Side airbags front"
+      ],
+      "exterior": [
+        "Aerography",
+        "Decals / Vinyls"
+      ],
+      "interior": [
+        "Auxiliary heating",
+        "Electric seat adjustment"
+      ],
+      "multimedia": [
+        "12V",
+        "Android auto",
+        "Apple car play",
+        "AUX",
+        "Bluetooth music streaming",
+        "CD changer",
+        "DVD changer",
+        "Hand-free kit",
+        "MP3 support",
+        "Multifunction steering wheel"
+      ],
+      "visibility": [
+        "Electric mirrors",
+        "Fog lamps",
+        "Front parking sensors",
+        "Heated mirrors",
+        "Heated windscreen",
+        "Light sensor"
+      ],
+      "comfort": [
+        "Electric steering wheel adjustment",
+        "Electric windows",
+        "Front heated seats",
+        "Front ventilated seats",
+        "Head-up display",
+        "Keyless engine start-stop",
+        "Keyless entry",
+        "On-board computer",
+        "Privacy glass",
+        "Remote engine start"
+      ],
+      "engine": {
+        "noOfCylinder": 3,
+        "engineVolume": 51,
+        "horsePower": 453,
+        "tourque": 453
+      },
+      "fuel": {
+        "highway": 37,
+        "combined": 24,
+        "fuelTank": 4.5,
+        "emissionClass": "Euro 6"
+      },
+      "emission": {
+        "type": "Manual",
+        "displacement": "Front Wheel Type"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Muhammad Yasir",
+      "email": "admin@yasir.com.pk",
+      "pass": "2345"
+    }
+  ],
+  "orders": [
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "19:31",
+        "date": "2020-05-05",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "20:31",
+        "date": "2020-05-25",
+        "location": "Lahore"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "id": 1
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "20:47",
+        "date": "2020-05-29",
+        "location": "Karachi"
+      },
+      "return": {
+        "time": "20:47",
+        "date": "2020-06-06",
+        "location": "Lahore"
+      },
+      "extras": [],
+      "id": 2
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "19:50",
+        "date": "2020-05-19",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "15:51",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 3
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "19:53",
+        "date": "2020-05-13",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "18:52",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "19:53",
+        "date": "2020-05-13",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "18:52",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "21:06",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "21:06",
+        "date": "2020-05-30",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "21:06",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "21:06",
+        "date": "2020-05-30",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 7
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "21:06",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "21:06",
+        "date": "2020-05-30",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 8
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "21:06",
+        "date": "2020-05-27",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "21:06",
+        "date": "2020-05-30",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 9
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "20:07",
+        "date": "2020-05-06",
+        "location": "Karachi"
+      },
+      "return": {
+        "time": "19:06",
+        "date": "2020-06-06",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        }
+      ],
+      "id": 10
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "20:07",
+        "date": "2020-05-06",
+        "location": "Karachi"
+      },
+      "return": {
+        "time": "19:06",
+        "date": "2020-06-06",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        }
+      ],
+      "id": 11
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "20:07",
+        "date": "2020-05-06",
+        "location": "Karachi"
+      },
+      "return": {
+        "time": "19:06",
+        "date": "2020-06-06",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        }
+      ],
+      "id": 12
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "22:13",
+        "date": "2020-05-06",
+        "location": "Islamabad"
+      },
+      "return": {
+        "time": "19:11",
+        "date": "2020-05-21",
+        "location": "Islamabad"
+      },
+      "extras": [
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        }
+      ],
+      "id": 13
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "08:14",
+        "date": "2020-05-20",
+        "location": "Multan"
+      },
+      "return": {
+        "time": "20:15",
+        "date": "2020-06-06",
+        "location": "Multan"
+      },
+      "extras": [
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        },
+        {
+          "name": "Water",
+          "Price": 500,
+          "id": 3
+        },
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        }
+      ],
+      "id": 14
+    },
+    {
+      "carId": 2,
+      "pickup": {
+        "time": "03:39",
+        "date": "2020-05-21",
+        "location": "Lahore"
+      },
+      "return": {
+        "time": "16:40",
+        "date": "2020-06-06",
+        "location": "Lahore"
+      },
+      "extras": [
+        {
+          "name": "Additional Driver",
+          "Price": 569,
+          "id": 1
+        },
+        {
+          "name": "Insurance",
+          "Price": 5000,
+          "id": 2
+        }
+      ],
+      "id": 15
+    }
+  ]
+}

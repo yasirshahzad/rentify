@@ -1,0 +1,247 @@
+<section
+  id="breadcrumb"
+  class="bg-primary text-white"
+  style="padding: 70px 70px 80px 70px;"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Compare</h1>
+        <h6>
+          Here you can compare different cars of your different choices!
+        </h6>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="compare">
+  <div class="row mx-auto" style="width: 1280px; margin-bottom: 100px;">
+    <div class="rentify-full-width-page col-md-12">
+      <div class="row listing-listing-row rentify-listing-compare-row">
+        <div
+          class="d-none d-sm-inline-block d-inline-block col-md-3 col-sm-3"
+        ></div>
+        <div class="d-inline-block col-md-3 col-sm-3 compare-col-rentify-empty">
+          <ng-container *ngIf="cars[0]; else elseTemplate">
+            <a class="compare-vehicle-image empty-slot">
+              <img [src]="cars[0].gallery[0]" class="shadow-sm" />
+              <h4 class="mt-3">
+                <span class="text-muted"> {{ cars[0].brand }} </span>
+                {{ cars[0].model }}
+              </h4>
+            </a>
+            <a nz-button (click)="removeVehicle(cars[0])" nzType="link">
+              <i
+                nz-icon
+                nzType="minus-square"
+                style="font-size: large; color: red;"
+                nzTheme="outline"
+              ></i>
+            </a>
+          </ng-container>
+        </div>
+        <div class="d-inline-block col-md-3 col-sm-3 compare-col-rentify-empty">
+          <ng-container *ngIf="cars[1]; else elseTemplate">
+            <a class="compare-vehicle-image empty-slot">
+              <img
+                [src]="cars[1].gallery[0]"
+                class="shadow-sm"
+                alt=""
+                srcset=""
+              />
+              <h4 class="mt-3">
+                <span class="text-muted"> {{ cars[1].brand }} </span>
+                {{ cars[1].model }}
+              </h4>
+            </a>
+            <a nz-button (click)="removeVehicle(cars[0])" nzType="link">
+              <i
+                nz-icon
+                nzType="minus-square"
+                style="font-size: large; color: red;"
+                nzTheme="outline"
+              ></i>
+            </a>
+          </ng-container>
+        </div>
+        <div class="d-inline-block col-md-3 col-sm-3 compare-col-rentify-empty">
+          <ng-container *ngIf="cars[2]; else elseTemplate">
+            <a class="compare-vehicle-image empty-slot">
+              <img
+                [src]="cars[2].gallery[0]"
+                class="shadow-sm"
+                alt=""
+                srcset=""
+              />
+              <h4 class="mt-3">
+                <span class="text-muted"> {{ cars[2].brand }} </span>
+                {{ cars[2].model }}
+              </h4>
+            </a>
+            <a nz-button (click)="removeVehicle(cars[0])" nzType="link">
+              <i
+                nz-icon
+                nzType="minus-square"
+                style="font-size: large; color: red;"
+                nzTheme="outline"
+              ></i>
+            </a>
+          </ng-container>
+        </div>
+      </div>
+      <!--row-->
+      <div class="row rentify-compare-row">
+        <div class="d-inline-block col-md-3 col-sm-3 d-none d-sm-inline-block">
+          <div class="compare-options">
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    Price
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Condition
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Body Style
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Interior
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mileage
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Fuel Type
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Engine volume (L)
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Power (hp)
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Transmission
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Exterior
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Emission
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Fuel Tank
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <ng-container *ngFor="let car of cars">
+          <div class="d-inline-block col-md-3 col-sm-3">
+            <div class="compare-options">
+              <table style="width: 100%;">
+                <tbody>
+                  <tr>
+                    <td>
+                      {{ car.price }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.condition }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.bodyStyle }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      {{ car.interiorColor }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{{ car.mileage }} KM/L City</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.fuelType }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.engine.engineVolume }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.engine.horsePower }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.transmission }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.exteriorColor }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.emission.type }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {{ car.fuel.fuelTank }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #elseTemplate>
+  <a nz-button routerLink="/fleet" nzType="link">
+    <i
+      nz-icon
+      nzType="plus-square"
+      style="font-size: large;"
+      nzTheme="outline"
+    ></i>
+    <div class="h4">Add vehicle to compare</div>
+  </a>
+</ng-template>

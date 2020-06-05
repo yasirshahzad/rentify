@@ -1,0 +1,49 @@
+.compare-vehicle-image img {
+  width: 170px;
+  border-radius: 150px;
+  object-fit: cover;
+}
+
+.compare-col-rentify-empty div.h4 {
+  margin-top: 5px;
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+.compare-vehicle-image img:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.compare-vehicle-image:hover {
+  text-decoration: none;
+}
+
+.compare-col-rentify-empty {
+  width: 100%;
+  position: relative;
+  float: left;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2%;
+  background-color: #fafafa;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.compare-options table > tbody tr td,
+.compare-values table > tbody tr td {
+  padding: 10px 0 9px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #797979;
+  border-bottom: 1px solid #e8e8e8;
+}

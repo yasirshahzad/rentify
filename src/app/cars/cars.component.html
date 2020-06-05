@@ -1,0 +1,33 @@
+<nz-table #basicTable [nzData]="dataSet" [nzLoading]="loading">
+  <thead>
+    <tr>
+      <th>Cars</th>
+      <th>Exterior Color</th>
+      <th>One day price</th>
+      <th>Transmission</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>
+        <a [routerLink]="['/fleet', data.id]"
+          >{{ data.brand }} {{ data.model }} {{ data.year }}</a
+        >
+      </td>
+      <td>{{ data.exteriorColor }}</td>
+      <td>{{ data.price }} PKR</td>
+      <td>{{ data.transmission }}</td>
+
+      <td>
+        <a [routerLink]="['/dashboard/car', data.id, 'edit']">
+          Edit
+        </a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-button nzType="link" nzDanger (click)="deleteCar(data.id)">
+          Delete
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,71 @@
+<form
+  nz-form
+  [formGroup]="validateForm"
+  class="login-form"
+  #f="ngForm"
+  (ngSubmit)="submitForm(f)"
+>
+  <nz-form-item>
+    <nz-form-control>
+      <nz-input-group nzPrefixIcon="user">
+        <input
+          type="email"
+          nz-input
+          formControlName="userName"
+          placeholder="Email"
+        />
+      </nz-input-group>
+      <div
+        *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="userName.errors.dupEmailError">
+          {{ userName.errors.dupEmailError }}
+        </div>
+        <div *ngIf="userName.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="userName.errors.email">
+          This email is not valid.
+        </div>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your Password!">
+      <nz-input-group nzPrefixIcon="lock">
+        <input
+          type="password"
+          nz-input
+          formControlName="password"
+          placeholder="Password"
+        />
+      </nz-input-group>
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="password.errors?.required">
+          Password is required.
+        </div>
+        <div *ngIf="password.errors.weak">
+          {{ password.errors.weak }}
+        </div>
+        <div *ngIf="password.errors.pattern">
+          Password is weak. It must have one special character, one uppercase
+          and lowercase and one number. Length will be 8 characters minimum.
+        </div>
+      </div>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button
+    nz-button
+    nz-type="primary"
+    class="login-form-button login-form-margin ant-btn ant-btn-primary"
+  >
+    Log in
+  </button>
+
+  Or <a [routerLink]="['../']"> Login now! </a>
+</form>

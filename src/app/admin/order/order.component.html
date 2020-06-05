@@ -1,0 +1,68 @@
+<nz-descriptions nzTitle="Order Details" nzBordered [nzSize]="'default'">
+  <ng-container *ngIf="order?.user | async as user">
+    <nz-descriptions-item nzTitle="Contact Person">
+      <span class="bold">
+        <a [routerLink]="['/dashboard/user/', user?.id]">{{ user.name }}</a>
+      </span>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Contact email">
+      <span class="bold">{{ user?.email }}</span>
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Order date">
+      <span class="bold">{{ order.orderDate }}</span>
+    </nz-descriptions-item>
+  </ng-container>
+
+  <nz-descriptions-item nzTitle="Pikcup Location">{{
+    order.pickup.location
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Pikcup Date">{{
+    order.pickup.date
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Pikcup Date">{{
+    order.pickup.time
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Return Location">{{
+    order.return.location
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Return Date">{{
+    order.return.date
+  }}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Return Time">{{
+    order.return.time
+  }}</nz-descriptions-item>
+
+  <nz-descriptions-item
+    nzTitle="Vehicle details"
+    *ngIf="order.car | async as car"
+  >
+    <span class="bold">Vehicle: </span>
+    <a [routerLink]="['/dashboard/car/', order.carId]">{{ car.model }}</a>
+    <br />
+    <span class="bold">Vehicle brand: </span> {{ car.brand }} <br />
+    <span class="bold">Vehicle make: </span> {{ car.year }} <br />
+    <span class="bold">Number of days: </span>
+    {{ this.calculateDays(order.return.date, order.pickup.date) }}
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Extras">
+    <ng-container *ngFor="let item of order.extras">
+      {{ item.name }} - {{ item.Price }} PKR
+      <br />
+    </ng-container>
+  </nz-descriptions-item>
+  <nz-descriptions-item
+    *ngIf="order.car | async as car"
+    nzTitle="Total Outstanding"
+  >
+    {{
+      this.calculateBill(
+        car?.price,
+        car.prices,
+        order.extras,
+        order.return.date,
+        order.pickup.date
+      )
+    }}
+    PKR
+  </nz-descriptions-item>
+</nz-descriptions>

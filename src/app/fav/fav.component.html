@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <ng-container *ngFor="let car of cars$ | async">
+    <div class="row border-bottom pb-2 mb-3">
+      <div class="row vehicle-row">
+        <div class="col-md-4">
+          <div class="img-fluid">
+            <img [src]="car.gallery[0]" class="img-thumbnail" />
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="meta">
+            <a class="display-4" [routerLink]="['/fleet', car.id]">
+              <span class="text-muted">{{ car.year }}</span>
+              {{ car.brand }} {{ car.model }}
+            </a>
+            <span class="price float-right">
+              From
+              <strong>{{ car?.price }} PKR </strong>
+              per day
+            </span>
+
+            <ul class="specs">
+              <li>{{ car.exteriorColor }}</li>
+              <li>{{ car.condition }}</li>
+              <li>{{ car.bodyStyle }}</li>
+              <li>{{ car.transmission }}</li>
+              <li>{{ car.mileage }} KM/L</li>
+              <li>{{ car.fuelType }}</li>
+            </ul>
+            <p nz-typography>{{ car.description | slice: 1:250 }}...</p>
+            <button type="button" class="float-left btn btn-primary">
+              Book Now
+            </button>
+
+            <ng-container
+              *ngIf="checkForCompareExistence(car); else elseTemplate"
+            >
+              <a
+                (click)="addOrRemoveToCompare(car)"
+                class="btn btn-secondary float-right text-white"
+              >
+                <i class="fa fa-times text-white" aria-hidden="true"></i>
+              </a>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <a
+                (click)="addOrRemoveToCompare(car)"
+                class="btn btn-danger float-right text-white"
+              >
+                <i class="fa fa-list-ul text-white" aria-hidden="true"></i>
+              </a>
+            </ng-template>
+            <ng-container *ngIf="checkForFavExistence(car); else notfound">
+              <a
+                style="margin-right: 10px;"
+                (click)="doOrUndoFav(car)"
+                type="button"
+                class="fav-button btn btn-danger float-right"
+                ><i class="fa fa-heart text-white"></i
+              ></a>
+            </ng-container>
+            <ng-template #notfound>
+              <a
+                (click)="doOrUndoFav(car)"
+                class="btn btn-danger float-right text-white"
+                style="margin-right: 10px;"
+              >
+                <i class="fa fa-heart-o text-white" aria-hidden="true"></i>
+              </a>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

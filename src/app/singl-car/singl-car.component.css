@@ -1,0 +1,190 @@
+.sidebar-car-meta {
+  position: relative;
+  margin: 0;
+  padding: 0 140px 0 0px;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: 1.1px;
+}
+.nav-tabs {
+  border-bottom: 1px solid #dee2e6;
+}
+.tab-content {
+  margin-bottom: 30px;
+}
+blockquote {
+  background: whitesmoke;
+  padding: 30px;
+}
+.rentify-specifications-block {
+  margin-bottom: 30px;
+}
+.rentify-specifications-title h4 {
+  width: auto;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 !important;
+  margin-top: 15px !important;
+}
+.rentify-specifications-block table {
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+.list-unstyled li {
+  margin-left: 0;
+  font-size: 14px;
+  color: #999999;
+  padding-top: 10px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 8px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dcdcdc;
+}
+tbody tr td {
+  padding-top: 10px !important;
+  padding-bottom: 8px;
+  line-height: 0px;
+}
+
+.anticon {
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.widget.rentify-rent-price-list {
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+.widget.rentify-rent-price-list ul li {
+  list-style: none;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.rent-price-title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 25px;
+  color: #212121;
+}
+.widget.rentify-rent-price-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.widget.rentify-car-fuel-consumption,
+.fantasy-themes-sidebar-car .widget {
+  padding: 3rem;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.rentify-fuel-consumption {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+}
+.rentify-fuel-consumption .fuel-consumption-unit {
+  padding-top: 8px;
+  float: left;
+  width: 36%;
+  text-align: center;
+}
+
+.rentify-fuel-consumption .fuel-consumption-unit .fuel-consumption-value {
+  padding: 0 3px;
+  font-size: 26px;
+  font-weight: 700;
+}
+.rentify-fuel-consumption .fuel-consumption-unit .fuel-consumption-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+}
+.rentify-fuel-consumption .fuel-consumption-icon {
+  float: left;
+  width: 28%;
+  text-align: center;
+  text-indent: 3px;
+}
+
+.rentify-fuel-consumption .fuel-consumption-icon span {
+  width: 70px;
+  height: 70px;
+  background-color: #d00027;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.rentify-fuel-consumption .fuel-consumption-unit {
+  padding-top: 8px;
+  float: left;
+  width: 36%;
+  text-align: center;
+}
+.rentify-fuel-consumption .fuel-consumption-unit .fuel-consumption-value {
+  padding: 0 3px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.rentify-fuel-consumption .fuel-consumption-unit .fuel-consumption-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.widget.rentify-car-specifications {
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.rentify-car-specifications > table {
+  width: 100%;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+
+.rentify-car-specifications > table tr td.label {
+  text-transform: uppercase;
+  color: #797979;
+  font-weight: bold;
+  font-size: 15px;
+}
+.rentify-car-specifications tr td {
+  padding-bottom: 5px !important ;
+  line-height: 20px !important;
+}
+
+.rentify-car-specifications tr {
+  padding-top: 5px !important ;
+  line-height: 20px !important;
+}
+[nz-carousel-content] img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}

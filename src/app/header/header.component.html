@@ -1,0 +1,67 @@
+<header id="header" style="background-color: white;">
+  <div class="container">
+    <div nz-row>
+      <div nz-col [nzSpan]="6">
+        <a [routerLink]="['/index']">
+          <img src="assets/img/logo.png" class="logo" />
+        </a>
+      </div>
+      <div nz-col [nzSpan]="18">
+        <div class="menu">
+          <ul nz-menu nzMode="horizontal">
+            <li nz-menu-item nzMatchRouter>
+              <i nz-icon nzType="home"></i>
+              <a [routerLink]="['/index']">Home</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <i nz-icon nzType="car"></i>
+              <a [routerLink]="['/about']">About</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <i nz-icon nzType="carry-out"></i>
+              <a [routerLink]="['/fleet']">Fleet</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <i nz-icon nzType="mail"></i>
+              <a [routerLink]="['/contact']">Contact</a>
+            </li>
+            <li class="header-actions">
+              <nz-badge [nzCount]="count">
+                <i
+                  routerLink="/compare"
+                  nz-icon
+                  style="font-size: x-large; color: #08c;"
+                  nzType="block"
+                ></i>
+              </nz-badge>
+            </li>
+            <li class="header-actions">
+              <nz-badge [nzCount]="noOfFav">
+                <i
+                  routerLink="/fav"
+                  nz-icon
+                  style="font-size: x-large; color: #08c;"
+                  nzType="heart"
+                ></i>
+              </nz-badge>
+            </li>
+            <li class="header-actions">
+              <ng-container *ngIf="user$ | async as user; else elseTemplate">
+                <nz-avatar
+                  routerLink="/dashboard"
+                  nzIcon="user"
+                  [nzSrc]="user.photoURL"
+                ></nz-avatar>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <button routerLink="/login" nz-button nzType="primary">
+                  Login
+                </button>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

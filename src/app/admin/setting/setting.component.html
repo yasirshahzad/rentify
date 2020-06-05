@@ -1,0 +1,208 @@
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-12">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmitProfileForm()">
+          <legend>Profile</legend>
+          <fieldset>
+            <div
+              *ngIf="!user?.emailVerified"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Your email is not verified. Check
+              <a (clikc)="sendVerificationEmail()">here</a>
+              to send verification email.
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                aria-describedby="helpId"
+                formControlName="name"
+              />
+              <small id="helpId" class="form-text text-muted"
+                >Enter your name</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                name="phone"
+                id="phone"
+                aria-describedby="phone"
+                formControlName="phone"
+              />
+              <small id="phone" class="form-text text-muted"
+                >Enter your phone number.</small
+              >
+            </div>
+            <input type="hidden" name="photoUrl" formControlName="photoUrl" />
+            <button class="btn btn-primary" type="submit">Save</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-lg-3 col-md-3-sm-12">
+        <nz-avatar
+          class="mt-2"
+          [nzShape]="'square'"
+          [nzSize]="64"
+          [nzSrc]="photoUrl?.value"
+        ></nz-avatar>
+        <ng-container *ngIf="uploadPercent | async as upload">
+          <nz-progress
+            [nzPercent]="upload == 100 ? 100 : upload"
+            [nzStatus]="upload < 100 ? 'active' : null"
+          ></nz-progress>
+        </ng-container>
+
+        <input type="file" class="mt-1" (change)="onSelectFile($event)" />
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <fieldset>
+          <legend>Email</legend>
+          <form
+            [formGroup]="emailChangeForm"
+            (ngSubmit)="onSubmitEmailChangeForm()"
+          >
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="email">Current Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    aria-describedby="helpId"
+                    formControlName="currentEmail"
+                    disabled="true"
+                  />
+                  <small id="helpId" class="form-text text-muted"
+                    >Current Email</small
+                  >
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="newEmail">New Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="newEmail"
+                    aria-describedby="helpId"
+                    formControlName="newEmail"
+                  />
+                  <small id="helpId" class="form-text text-muted"
+                    >New Email</small
+                  >
+                </div>
+              </div>
+
+              <ng-container
+                *ngIf="
+                  this.emailChangeForm.invalid &&
+                  this.emailChangeForm.errors?.loginAgain
+                "
+              >
+                <div class="alert alert-danger">
+                  {{ this.emailChangeForm.errors?.loginAgain }}
+                  <a (logout)="logout()">Signout</a>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="message">
+                <div class="alert alert-success" role="alert">
+                  {{ message }}
+                </div>
+              </ng-container>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <fieldset>
+          <legend>Password</legend>
+          <form
+            [formGroup]="passwordChangeForm"
+            (ngSubmit)="onSubmitPasswordChangeForm()"
+          >
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="currentPassword">Current Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="currentPassword"
+                    id="currentPassword"
+                    aria-describedby="currentPass"
+                    formControlName="currentPassword"
+                  />
+                  <small id="currentPass" class="form-text text-muted"
+                    >Enter current Password</small
+                  >
+                </div>
+                <div
+                  *ngIf="
+                    currentPassword.invalid &&
+                    (currentPassword.dirty || currentPassword.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="this.currentPassword.errors.required">
+                    Please enter current password.
+                  </div>
+                  <div
+                    *ngIf="this.currentPassword.errors.WRONG_CURRENT_PASSWORD"
+                  >
+                    {{ this.currentPassword.errors.WRONG_CURRENT_PASSWORD }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="newPassword">New Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="newPassword"
+                    id="newPassword"
+                    aria-describedby="newPassword"
+                    formControlName="newPassword"
+                  />
+                  <small id="newPassword" class="form-text text-muted"
+                    >Enter new password.</small
+                  >
+                </div>
+                <div
+                  *ngIf="
+                    newPassword.invalid &&
+                    (newPassword.dirty || newPassword.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="this.newPassword.errors.required">
+                    Please enter new password.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Save</button>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

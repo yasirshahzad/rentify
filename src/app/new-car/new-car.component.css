@@ -1,0 +1,12 @@
+nz-select {
+  width: 100%;
+}
+.remove {
+  float: right;
+  padding: 0px 5px 0px 5px !important;
+}
+.ant-tabs-content {
+  margin-bottom: 30px !important;
+  border: 1px dashed rgb(207, 207, 207) !important;
+  padding: 20px !important;
+}

@@ -1,0 +1,796 @@
+<nz-spin [nzSpinning]="loading">
+  <form [formGroup]="this.carForm" (ngSubmit)="updateCar()">
+    <div class="form-row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="form-group">
+          <label for="model">Model</label>
+          <input
+            type="text"
+            class="form-control"
+            name="model"
+            id="model"
+            aria-describedby="model"
+            formControlName="model"
+          />
+          <small id="model" class="form-text text-muted"
+            >Model of vehicle.</small
+          >
+          <div
+            *ngIf="
+              this.carForm.controls['model'].invalid &&
+              (this.carForm.controls['model'].dirty ||
+                this.carForm.controls['model'].touched)
+            "
+            class="alert alert-danger"
+          >
+            Please enter vehicle model.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            name="brand"
+            id="brand"
+            aria-describedby="brand"
+            formControlName="brand"
+          />
+          <small id="brand" class="form-text text-muted"
+            >Brand of vehicle.</small
+          >
+          <div
+            *ngIf="
+              this.brand.invalid && (this.brand.dirty || this.brand.touched)
+            "
+            class="alert alert-danger"
+          >
+            Please enter vehicle brand.
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input
+            type="text"
+            class="form-control"
+            name="year"
+            id="year"
+            aria-describedby="year"
+            formControlName="year"
+          />
+          <small id="year" class="form-text text-muted"
+            >Model's year like 2020, 1998, 2012.</small
+          >
+          <div
+            *ngIf="this.year.invalid && (this.year.dirty || this.year.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.year.errors.required">Please enter year.</div>
+            <div *ngIf="this.year.errors.minlength">
+              Minimum length should be 4 numbers.
+            </div>
+            <div *ngIf="this.year.errors.maxlength">
+              Maximum length should be 4 numbers.
+            </div>
+            <div *ngIf="this.year.errors.pattern">
+              Please only enter years like 2020, 1998, 2012 etc.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="interiorColor">Interior Color</label>
+          <input
+            type="text"
+            class="form-control"
+            name="interiorColor"
+            id="interiorColor"
+            aria-describedby="interiorColor"
+            formControlName="interiorColor"
+          />
+          <small id="interiorColor" class="form-text text-muted"
+            >Vehicle's interior color.</small
+          >
+          <div
+            *ngIf="
+              this.interiorColor.invalid &&
+              (this.interiorColor.dirty || this.interiorColor.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.interiorColor.errors.required">
+              Please enter interior color.
+            </div>
+
+            <div *ngIf="this.interiorColor.errors.pattern">
+              Enter only text.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="exteriorColor">Exterior Color</label>
+          <input
+            type="text"
+            class="form-control"
+            name="exteriorColor"
+            id="exteriorColor"
+            aria-describedby="exteriorColor"
+            formControlName="exteriorColor"
+          />
+          <small id="exteriorColor" class="form-text text-muted"
+            >Vehicles' exterior color.</small
+          >
+          <div
+            *ngIf="
+              this.exteriorColor.invalid &&
+              (this.exteriorColor.dirty || this.exteriorColor.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.exteriorColor.errors.required">
+              Please enter exterior color
+            </div>
+
+            <div *ngIf="this.exteriorColor.errors.pattern">
+              Enter only text.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="price"
+            id="price"
+            aria-describedby="price"
+            formControlName="price"
+          />
+          <small id="price" class="form-text text-muted"
+            >Vehicle rent price per day.</small
+          >
+          <div
+            *ngIf="
+              this.price.invalid && (this.price.dirty || this.price.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.price.errors.required">
+              Please price per day.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="mileage">Mileage</label>
+          <input
+            type="number"
+            class="form-control"
+            name="mileage"
+            id="mileage"
+            aria-describedby="mileage"
+            formControlName="mileage"
+          />
+          <small id="mileage" class="form-text text-muted"
+            >Vehicle's normal mileage in city.</small
+          >
+          <div
+            *ngIf="
+              this.mileage.invalid &&
+              (this.mileage.dirty || this.mileage.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.mileage.errors.required">
+              Ener vehicle's mileage for city routes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="fuelType">Fuel Type</label>
+          <select
+            class="form-control"
+            name="fuelType"
+            id="fuelType"
+            formControlName="fuelType"
+          >
+            <option>Diesel</option>
+            <option>Petrol</option>
+            <option>Gas</option>
+          </select>
+          <div
+            *ngIf="
+              this.fuelType.invalid &&
+              (this.fuelType.dirty || this.fuelType.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.fuelType.errors.required">
+              Enter type of fuel using in the car.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="locations">Location Availability</label>
+          <nz-select
+            nzMaxTagPlaceholder="tagPlaceHolder"
+            nzMode="multiple"
+            nzSize="large"
+            id="locations"
+            [(ngModel)]="selectedLocations"
+            [ngModelOptions]="{ standalone: true }"
+            (ngModelChange)="LocationChange()"
+          >
+            <nz-option
+              *ngFor="let item of locations"
+              [nzLabel]="item"
+              [nzValue]="item"
+            ></nz-option>
+          </nz-select>
+          <div
+            *ngIf="
+              this.locationsControl.errors?.required &&
+              (this.locationsControl.touched || this.locationsControl.dirty)
+            "
+            class="alert alert-danger"
+          >
+            Please enter minimum one location
+          </div>
+          <ng-template #tagPlaceHolder let-selectedList>
+            and {{ selectedList.length }} more selected
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-12">
+        <nz-tabset nzSize="large">
+          <nz-tab nzTitle="Description">
+            <div class="form-row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea
+                    class="form-control"
+                    name="description"
+                    formControlName="description"
+                    id="description"
+                    aria-describedby="description"
+                    rows="6"
+                  ></textarea>
+                  <small id="description" class="form-text text-muted"
+                    >Write the description of vehcile.</small
+                  >
+                  <div
+                    *ngIf="
+                      this.description.invalid &&
+                      (this.description.dirty || this.description.touched)
+                    "
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="this.description.errors.required">
+                      Enter description of vehicle.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Offer Extra ">
+            <div class="form-row">
+              <div formArrayName="extras" class="col-lg-12 col-md-12 col-sm-12">
+                <div *ngFor="let extra of this.extras.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <div class="form-group">
+                      <label for="name">Name</label
+                      ><button
+                        class="btn btn-danger remove"
+                        (click)="removeExtras(i)"
+                      >
+                        Remove
+                      </button>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        id="name"
+                        aria-describedby="name"
+                        formControlName="name"
+                      />
+                      <small id="name" class="form-text text-muted"
+                        >Enter extra offer title.</small
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="price">Price</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        id="price"
+                        aria-describedby="price"
+                        formControlName="Price"
+                      />
+                      <small id="price" class="form-text text-muted"
+                        >Enter price for extra offering.</small
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-primary mb-5"
+                  (click)="addExtras()"
+                >
+                  Add more extra.
+                </button>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Multiple Prices">
+            <div class="form-row">
+              <div class="col-12" formArrayName="prices">
+                <div *ngFor="let price of this.prices.controls; let i = index">
+                  <div [formGroupName]="i">
+                    <div class="form-group">
+                      <label for="noOfDays">Number of days</label>
+                      <button
+                        class="btn btn-danger remove"
+                        (click)="removePrices(i)"
+                      >
+                        Remove
+                      </button>
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="days"
+                        name="noOfDays"
+                        id="noOfDays"
+                        aria-describedby="noOfDays"
+                        placeholder=""
+                      />
+                      <small id="noOfDays" class="form-text text-muted"
+                        >Set price if book is more than this number of
+                        days.</small
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="dynamicPrice">Price</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        id="dynamicPrice"
+                        aria-describedby="dynamicPrice"
+                        formControlName="price"
+                      />
+                      <small id="dynamicPrice" class="form-text text-muted"
+                        >Price for given number of days</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary mb-5"
+                (click)="addPrice()"
+              >
+                Add more extra.
+              </button>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Other Options">
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <label for="multimedia">Multimedia</label>
+                <nz-select
+                  nzMaxTagPlaceholder="multimedia"
+                  nzMode="multiple"
+                  nzSize="large"
+                  id="multimedia"
+                  [(ngModel)]="selectedmultimedia"
+                  [ngModelOptions]="{ standalone: true }"
+                  (ngModelChange)="changeMultimedia()"
+                >
+                  <nz-option
+                    *ngFor="let item of multimediaOptions"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                  ></nz-option>
+                </nz-select>
+                <ng-template #multimedia let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <label for="safety">Safety</label>
+                <nz-select
+                  nzMaxTagPlaceholder="safety"
+                  nzMode="multiple"
+                  nzSize="large"
+                  id="safety"
+                  [(ngModel)]="selectedSafety"
+                  [ngModelOptions]="{ standalone: true }"
+                  (ngModelChange)="changeSafety()"
+                >
+                  <nz-option
+                    *ngFor="let item of safetyOptions"
+                    [nzLabel]="item"
+                    [nzValue]="item"
+                  ></nz-option>
+                </nz-select>
+                <ng-template #safety let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="comfort">Comfort</label>
+                  <nz-select
+                    nzMaxTagPlaceholder="comfort"
+                    nzMode="multiple"
+                    nzSize="large"
+                    id="comfort"
+                    [(ngModel)]="selectedComfort"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="changeComfort()"
+                  >
+                    <nz-option
+                      *ngFor="let item of comfortOptions"
+                      [nzLabel]="item"
+                      [nzValue]="item"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+                <ng-template #comfort let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="visibility">Visibility</label>
+                  <nz-select
+                    nzMaxTagPlaceholder="visibility"
+                    nzMode="multiple"
+                    nzSize="large"
+                    id="visibility"
+                    [(ngModel)]="selectedVisibility"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="changeVisibility()"
+                  >
+                    <nz-option
+                      *ngFor="let item of visibilityOptions"
+                      [nzLabel]="item"
+                      [nzValue]="item"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+                <ng-template #visibility let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="exterior">Exterior</label>
+                  <nz-select
+                    nzMaxTagPlaceholder="exterior"
+                    nzMode="multiple"
+                    nzSize="large"
+                    id="exterior"
+                    [(ngModel)]="selectedExterior"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="changeExterior()"
+                  >
+                    <nz-option
+                      *ngFor="let item of extriorOptions"
+                      [nzLabel]="item"
+                      [nzValue]="item"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+                <ng-template #exterior let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="interior">Interior</label>
+                  <nz-select
+                    nzMaxTagPlaceholder="interior"
+                    nzMode="multiple"
+                    nzSize="large"
+                    id="interior"
+                    [(ngModel)]="selectedInterior"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="changeInterior()"
+                  >
+                    <nz-option
+                      *ngFor="let item of interiorOptions"
+                      [nzLabel]="item"
+                      [nzValue]="item"
+                    ></nz-option>
+                  </nz-select>
+                </div>
+                <ng-template #interior let-selectedList>
+                  and {{ selectedList.length }} more selected
+                </ng-template>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Gallery">
+            <input
+              type="file"
+              class="mt-1"
+              multiple="multiple"
+              (change)="onSelectFile($event)"
+            />
+          </nz-tab>
+        </nz-tabset>
+      </div>
+    </div>
+    <div class="form-row" formGroupName="engine">
+      <div class="col-12">
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="noOfCylinder">Number of Cylinders</label>
+              <input
+                type="number"
+                class="form-control"
+                name="noOfCylinder"
+                formControlName="noOfCylinder"
+                id="noOfCylinder"
+                aria-describedby="noOfCylinder"
+                placeholder=""
+              />
+              <small id="noOfCylinder" class="form-text text-muted"
+                >Tell us the number of cylinders of this vehicle.</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <div class="form-group">
+                <label for="engineVolume">Engine Volume</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="engineVolume"
+                  formControlName="engineVolume"
+                  id="engineVolume"
+                  aria-describedby="engineVlume"
+                  placeholder=""
+                />
+                <small id="engineVlume" class="form-text text-muted"
+                  >Tell us the engine volume.</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="horsePower">Horse Power</label>
+              <input
+                type="text"
+                class="form-control"
+                name="horsePower"
+                id="horsePower"
+                aria-describedby="horsePowser"
+                formControlName="horsePower"
+              />
+              <small id="horsePowser" class="form-text text-muted"
+                >Tell us the horse power of vehicle.</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="tourque">Tourque</label>
+              <input
+                type="number"
+                class="form-control"
+                name="tourque"
+                id="tourque"
+                aria-describedby="tourque"
+                formControlName="tourque"
+              />
+              <small id="tourque" class="form-text text-muted"
+                >Tell us the tourque of engine.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" formGroupName="fuel">
+      <div class="col-12">
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label for="highway">Highway</label>
+              <input
+                type="number"
+                class="form-control"
+                name="highway"
+                formControlName="highway"
+                id="highway"
+                aria-describedby="highway"
+                placeholder=""
+              />
+              <small id="highway" class="form-text text-muted"
+                >Mileage on Highways.</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label for="combined">Combined</label>
+              <input
+                type="number"
+                class="form-control"
+                name="combined"
+                id="combined"
+                aria-describedby="combined"
+                formControlName="combined"
+              />
+              <small id="combined" class="form-text text-muted"
+                >Mileage for both. (Cities and Highways)</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="fuelTank">Fuel Tank Capacity</label>
+              <input
+                type="number"
+                class="form-control"
+                name="fuelTank"
+                formControlName="fuelTank"
+                id="fuelTank"
+                aria-describedby="fuelTank"
+                placeholder=""
+              />
+              <small id="fuelTank" class="form-text text-muted"
+                >Fuel Tank Capacity in gallons.</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="emissionClass">Emission Class</label>
+              <input
+                type="text"
+                class="form-control"
+                name="emissionClass"
+                formControlName="emissionClass"
+                id="emissionClass"
+                aria-describedby="emissionClass"
+              />
+              <small id="emissionClass" class="form-text text-muted"
+                >Emission class like Euro 1, 2, 4, 5, 6</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" formGroupName="emission">
+      <div class="col-12">
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label for="type">Type</label>
+              <input
+                type="text"
+                class="form-control"
+                name="type"
+                id="type"
+                aria-describedby="type"
+                formControlName="type"
+              />
+              <small id="type" class="form-text text-muted"
+                >Tell us the emission type</small
+              >
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+              <label for="displacement">Displacement</label>
+              <input
+                type="text"
+                class="form-control"
+                name="displacement"
+                id="displacement"
+                aria-describedby="displacement"
+                formControlName="displacement"
+              />
+              <small id="displacement" class="form-text text-muted"
+                >Displace of vehicle's emssion.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-12">
+        <div class="form-row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="condition">Condition</label>
+              <input
+                type="text"
+                class="form-control"
+                name="condition"
+                id="condition"
+                aria-describedby="condition"
+                formControlName="condition"
+              />
+              <small id="condition" class="form-text text-muted"
+                >Tell us brief about conditions of car.</small
+              >
+              <div
+                *ngIf="
+                  this.condition.errors?.required &&
+                  (this.condition.touched || this.condition.dirty)
+                "
+                class="alert alert-danger"
+              >
+                Condition is compulsory.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="transmissionType">Transmission Type</label>
+              <input
+                type="text"
+                class="form-control"
+                name="transmissionType"
+                id="transmissionType"
+                aria-describedby="transmissionType"
+                formControlName="transmission"
+              />
+              <small id="transmissionType" class="form-text text-muted"
+                >Is it automaitc, semi-automatic or manual?</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</nz-spin>

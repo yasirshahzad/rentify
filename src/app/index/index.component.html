@@ -1,0 +1,400 @@
+<section class="top-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 text-white">
+        <h4>
+          <span class="badge badge-warning">We belive in</span>
+        </h4>
+        <h1 class="text-white">
+          We provide best car rental options for luxury trips!
+        </h1>
+        <p class="mb-3">
+          Lorem ipsum is dummy text serving print media industry from years. We
+          deal with best car rental system in nation wide. Our system is not
+          only fast but also has many benefits in your supper journey. Hire us
+          today!
+        </p>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <img
+          src="/assets/img/8.png"
+          style="width: 400px; margin-top: 40px;"
+          class="float-right"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="search-module bg-light raised p-4">
+          <form class="mt-4" #f="ngForm" (ngSubmit)="route(f)">
+            <div class="row">
+              <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="form-group">
+                  <label for="model">Select Brand</label>
+                  <select
+                    class="form-control"
+                    ngModel
+                    #modelsss="ngModel"
+                    name="model"
+                    id="model"
+                    aria-describedby="helpId"
+                  >
+                    <option value="" selected>Select one</option>
+                    <option *ngFor="let car of uniqueModelList" [value]="car">{{
+                      car
+                    }}</option>
+                  </select>
+                  <small id="helpId" class="form-text text-muted"
+                    >Leave empty for available models.</small
+                  >
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="form-group">
+                  <label for="return">Pickup Location</label>
+                  <select
+                    ngModel
+                    class="form-control"
+                    name="city"
+                    id="make"
+                    #pickupLocation="ngModel"
+                    required
+                    [ngClass]="{
+                      'invalid-border':
+                        pickupLocation.touched && pickupLocation.invalid
+                    }"
+                  >
+                    <option value="" selected>Select one</option>
+
+                    <option
+                      *ngFor="let city of uniqueCityList$ | async"
+                      [value]="city"
+                      >{{ city }}</option
+                    >
+                  </select>
+                  <div
+                    *ngIf="pickupLocation.touched && !pickupLocation.valid"
+                    class="alert alert-danger"
+                  >
+                    Please provide a pickup location.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="form-group">
+                  <label for="date">Pickup Date</label>
+                  <input
+                    ngModel
+                    type="date"
+                    required
+                    name="date"
+                    id="date"
+                    class="form-control"
+                    #pickupDate="ngModel"
+                    [ngClass]="{
+                      'invalid-border': pickupDate.touched && pickupDate.invalid
+                    }"
+                  />
+                  <div
+                    *ngIf="pickupDate.touched && pickupDate.invalid"
+                    class="alert alert-danger"
+                  >
+                    Please provide a pickup date.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12">
+                <div class="form-group">
+                  <label for="rdate">Return Date</label>
+                  <input
+                    ngModel
+                    type="date"
+                    name="rdate"
+                    id="rdate"
+                    class="form-control"
+                    #returnDate="ngModel"
+                    required
+                    [ngClass]="{
+                      'invalid-border': returnDate.touched && returnDate.invalid
+                    }"
+                  />
+                  <div
+                    *ngIf="returnDate.touched && returnDate.invalid"
+                    class="alert alert-danger"
+                  >
+                    Please provide a return date.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-block mt-4 mb-3"
+                  [disabled]="!f.valid"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h4><span class="badge badge-warning">Empowering</span></h4>
+        <h1 class="display-4">
+          Advanced Mobile Rental System
+        </h1>
+        <h3 class="text-muted">Get your car at your dropstep</h3>
+        <div class="custom-hr"></div>
+        <p class="big">
+          Lorem ipsum is dummy text serving print media industry from years. We
+          deal with best car rental system in nation wide. Our system is not
+          only fast but also has many benefits in your supper journey. Hire us
+          today! Lorem ipsum is dummy text serving print media industry from
+          years. We deal with best car rental system in nation wide.
+        </p>
+
+        <a name="" id="" class="btn btn-primary mt-4" href="#" role="button"
+          >Book Now!</a
+        >
+      </div>
+      <div class="col-lg-6 offset-lg-2"></div>
+    </div>
+  </div>
+</section>
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="display-5 mx-auto font-weight-bold">
+          Search Dream Car Today with Rentify!
+        </h2>
+        <div class="custom-hr mx-auto pt-3"></div>
+        <div class="custom-width-block">
+          Lorem Ipsum Data We deal with best car rental system in nation wide.
+          Our system is not only fast but also has many benefits in your supper
+          journey.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card-columns mt-5">
+          <div class="card">
+            <img class="card-img-top" src="./assets/img/1.jpg" alt="" />
+            <div class="card-body">
+              <h4 class="card-title">Cars in Time</h4>
+              <p class="card-text">
+                Our deliver is guaranteed in time. You will have car in given
+                time.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="./assets/img/2.jpg" alt="" />
+            <div class="card-body">
+              <h4 class="card-title">Pay anytime</h4>
+              <p class="card-text">
+                Our flexible payment system is available on any device. Pay
+                before or after delivery.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card-img-top" src="./assets/img/3.jpg" alt="" />
+            <div class="card-body">
+              <h4 class="card-title">Reservation anytime</h4>
+              <p class="card-text">
+                We can reserve your cars on any time for special events. Just
+                pay 30% in advance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="desc">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="custom-padding">
+        <h4>
+          <span class="badge badge-warning">Features</span>
+        </h4>
+        <h1 class="display-5">Great Benefits</h1>
+        <ul class="list-group mt-5">
+          <li class="list-group-item">
+            <div class="img-icon">
+              <img src="./assets/img/icon-1.png" />
+            </div>
+            <div class="list-right">
+              <h5>In House Financing</h5>
+              <p>
+                We are open to offer you in house financing to save you money!
+              </p>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="img-icon">
+              <img src="./assets/img/icon-2.png" alt="" />
+            </div>
+            <div class="list-right">
+              <h5>Trusted Cars</h5>
+              <p>
+                With more than 15 years on the market we know how to care about
+                our customers.
+              </p>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="img-icon">
+              <img src="./assets/img/icon-3.png" alt="" />
+            </div>
+            <div class="list-right">
+              <h5>Service &amp; Maintenance</h5>
+              <p>
+                Our service department maintain your car to stay safe on the
+                road and off the road.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 image-right"></div>
+  </div>
+</section>
+<section id="fleet">
+  <div class="container">
+    <div class="row mb-5 text-center">
+      <div class="col-12">
+        <h2 class="display-5 mx-auto font-weight-bold">
+          Search Dream Car Today with Rentify!
+        </h2>
+        <div class="custom-hr mx-auto pt-3"></div>
+        <div class="custom-width-block">
+          Lorem Ipsum Data We deal with best car rental system in nation wide.
+          Our system is not only fast but also has many benefits in your supper
+          journey.
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-12">
+        <div class="filter-row text-center">
+          <ul class="list-group list-group-horizontal-md">
+            <li
+              class="list-group-item"
+              [ngClass]="{ active: 'all' === selectedModel }"
+              (click)="filter({ model: 'all' })"
+            >
+              All
+            </li>
+            <li
+              *ngFor="let model of models"
+              class="list-group-item"
+              [ngClass]="{ active: model === selectedModel }"
+              (click)="filter({ model: model })"
+            >
+              {{ model }}
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <ng-container *ngIf="!loading; else showSkeleton">
+            <ng-container *ngFor="let car of cars | slice: 0:9; let i = index">
+              <div class="col">
+                <div class="card" style="width: 350px !important;">
+                  <img
+                    [routerLink]="['/fleet', car.id]"
+                    class="card-img-top filter-card-img"
+                    [src]="car.gallery[0]"
+                  />
+                  <div class="card-body">
+                    <h4 class="card-title text-primary">
+                      <span class="text-muted">{{ car.year }}</span>
+                      {{ car.brand }} {{ car.model }}
+                    </h4>
+                    <ul class="location">
+                      <li>
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        {{ car.locations[0] }}
+                      </li>
+                      <li>
+                        <i class="fa fa-money fa-bold" aria-hidden="true"></i>
+                        {{ car.price }} PKR/day
+                      </li>
+                    </ul>
+                    <p class="card-text">
+                      {{ car.description | slice: 0:160 }}...
+                    </p>
+                    <button
+                      type="button"
+                      data-toggle="modal"
+                      data-target=".bd-example-modal-lg"
+                      class="btn btn-primary btn-sm btn-block"
+                      (click)="checkout(car)"
+                    >
+                      Boook Now
+                    </button>
+                  </div>
+                  <div class="card-footer">
+                    <ul class="location">
+                      <li>
+                        <i class="fa fa-dashboard" aria-hidden="true"></i>
+                        {{ car.mileage }} KM/L
+                      </li>
+                      <li>
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                        {{ car.transmission }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+            </ng-container>
+          </ng-container>
+          <ng-template #showSkeleton>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <nz-skeleton [nzActive]="true"></nz-skeleton>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <nz-skeleton [nzActive]="true"></nz-skeleton>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <nz-skeleton [nzActive]="true"></nz-skeleton>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="cta" style="background-image: url('/assets/img/last-row.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <h1 class="display-2 text-white" style="font-size: 45px;">
+          Do you have any question?
+        </h1>
+        <p style="font-size: 23px; color: white;">
+          Contact us now and we will reply within 24 hours.
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <a routerLink="/contact" class="btn btn-primary btn-lg mt-5"
+          >Contact now</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

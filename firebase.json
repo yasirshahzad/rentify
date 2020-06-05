@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "rental",
+      "public": "dist/rental",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

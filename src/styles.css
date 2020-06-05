@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.ant-layout {
+  background: transparent;
+}
+
+.ant-layout-header {
+  background: #00152900;
+
+  padding: 0px;
+}
+.ant-menu-horizontal {
+  border-bottom: none;
+  box-shadow: none;
+  text-align: right;
+}
+
+.logo {
+  width: 250px;
+}
+
+header {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.ant-menu.ant-menu-root.ant-menu-light.ant-menu-horizontal {
+  margin-top: 13px;
+}
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+  padding-bottom: 16px;
+}
+.ant-modal {
+  top: 20px;
+}
+
+.ant-notification {
+  z-index: 9999999 !important;
+}
+
+.anticon svg {
+  top: 0px !important;
+  margin-top: -5px;
+}

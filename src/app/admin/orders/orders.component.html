@@ -1,0 +1,27 @@
+<nz-table #basicTable [nzData]="dataSet" [nzLoading]="loading">
+  <thead>
+    <tr>
+      <th>Car</th>
+      <th>Order Date</th>
+      <th>Pickup Location</th>
+      <th>Date Booked</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td *ngIf="data?.car | async as car">{{ car?.model }}</td>
+      <td>{{ data.orderDate }}</td>
+      <td>{{ data.pickup?.location }}</td>
+      <td>{{ data.pickup?.date }}</td>
+
+      <td>
+        <a [routerLink]="['order', data.key]">View Book</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a *ngIf="user.isAdmin" [routerLink]="['order', data.key, 'edit']">
+          Edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

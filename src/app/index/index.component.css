@@ -1,0 +1,111 @@
+.raised {
+  box-shadow: #00000052 1px 19px 20px 0px;
+  border-radius: 5px;
+  margin-top: 140px;
+}
+
+.top-row {
+  background-image: url("/assets/img/header.png");
+  padding-top: 100px;
+  background-size: cover;
+  padding-bottom: 100px;
+  background-position-x: 0px;
+}
+
+#intro {
+  background-image: url("/assets/img/row-2.jpg");
+  background-position: center center !important;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  background-size: cover;
+  object-fit: cover;
+}
+#services {
+  background-color: #f2f8ff;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  margin-top: 80px;
+}
+.custom-hr {
+  border-bottom: 3px solid#007bff;
+  border-width: 2px;
+  width: 20%;
+  margin-bottom: 30px;
+}
+.custom-width-block {
+  width: 600px;
+  margin: auto;
+}
+.image-right {
+  background-image: url("/assets/img/4.jpg");
+}
+
+.custom-padding {
+  padding: 10% 15% 10% 15% !important;
+}
+#desc .list-group-item {
+  padding-top: 30px;
+  display: flex;
+}
+#desc .list-group-item {
+  background: #f0f7ff !important;
+}
+#fleet {
+  background: #f9f9f9;
+  padding-top: 3%;
+  padding-bottom: 10%;
+}
+
+.filter-row {
+  margin-bottom: 50px;
+}
+.filter-row .btn {
+  margin-right: 10px;
+}
+
+.card-deck p {
+  margin-top: 20px;
+}
+.filter-card-img {
+  width: 348.5px !important;
+}
+.card-img-top {
+  object-fit: cover;
+  width: 355px;
+  height: 270px;
+}
+.custom-badge {
+  top: 20px;
+  padding: 0 11px;
+  left: 20px;
+  line-height: 30px;
+  position: absolute;
+}
+
+.location {
+  text-align: left;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+.location li {
+  display: inline;
+  text-align: left;
+  margin-right: 10px;
+}
+.location li .fa {
+  color: #ffc107;
+}
+.card-text {
+  margin-top: 12px;
+}
+.card {
+  margin-bottom: 30px !important;
+}
+
+#cta {
+  padding: 2% 0px;
+}
+
+.invalid-border {
+  border: 1px solid red;
+}

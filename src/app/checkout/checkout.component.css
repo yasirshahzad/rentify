@@ -1,0 +1,111 @@
+.steps-content {
+  border: 1px rgb(226, 226, 226) dashed;
+  padding: 20px;
+  margin-top: 20px;
+}
+.steps-action {
+  margin-top: 24px;
+}
+.form {
+  margin-top: 30px;
+}
+.small-details {
+  padding: 5px 15px;
+  background-color: #eee;
+  border-radius: 4px;
+  color: #727272;
+}
+label .float-right {
+  margin-right: 10px;
+  right: 0px;
+  text-align: right;
+  display: inline;
+}
+.ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-description {
+  color: rgba(0, 0, 0, 0.65);
+  min-width: 100% !important;
+}
+
+.anticon {
+  vertical-align: 0em;
+}
+.ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-description {
+  color: rgba(0, 0, 0, 0.65);
+  max-width: 100% !important;
+}
+label {
+  width: 100%;
+}
+.extra {
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 10px;
+}
+.price {
+  font-size: 22px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+.bold {
+  font-weight: bold;
+}
+.specs {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  text-align: left;
+  margin-top: 15px;
+}
+.specs li {
+  margin-right: 5px !important;
+  padding: 4px 8px;
+  background-color: #edeff1;
+  float: left;
+  border-radius: 3px;
+  line-height: 1.3;
+  transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+.img-thumbnail {
+  object-fit: cover !important;
+  height: 190px !important;
+}
+.display-4 {
+  font-size: 2rem !important;
+}
+.heart {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png")
+    no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  animation: fave-heart 1s steps(28);
+}
+.heart:hover {
+  background-position: -2800px 0;
+  transition: background 1s steps(28);
+}
+@keyframes fave-heart {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2800px 0;
+  }
+}
+
+.ant-result {
+  padding: 48px 32px;
+  text-align: center;
+}
