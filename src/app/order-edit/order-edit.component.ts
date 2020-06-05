@@ -31,6 +31,7 @@ export class OrderEditComponent implements OnInit, OnDestroy {
       orderDate: [''],
       carId: ['', [Validators.required]],
       userId: ['', [Validators.required]],
+      status: [''],
       pickup: this.fb.group({
         date: [''],
         time: [''],
@@ -61,6 +62,7 @@ export class OrderEditComponent implements OnInit, OnDestroy {
           orderDate: x.orderDate,
           carId: x.carId,
           userId: x.userId,
+          status: x.approvalStatus,
           pickup: {
             location: x.pickup.location,
             time: x.pickup.time,
@@ -117,10 +119,11 @@ export class OrderEditComponent implements OnInit, OnDestroy {
   //Submitting Order Form
   submitOrderForm() {
     if (this.orderForm.valid) {
+      console.log(this.orderForm.value);
       this.orderService
         .updateOrder(this.orderForm.value, this.order.key)
         .then((result) => {
-          this.router.navigate(['dashboard', 'order', this.order.key]);
+          this.router.navigate(['dashboard']);
         })
         .catch((err) => {
           alert(JSON.stringify(err));
@@ -130,5 +133,16 @@ export class OrderEditComponent implements OnInit, OnDestroy {
   //Unsubscribing Obervers here.
   ngOnDestroy(): void {
     this.orderSub.unsubscribe();
+  }
+
+  approve() {
+    this.orderForm.controls['status'].setValue('approved');
+
+    console.log(this.order.approvalStatus);
+  }
+
+  archive() {
+    this.orderForm.controls['status'].setValue('archived');
+    console.log(this.order.approvalStatus);
   }
 }

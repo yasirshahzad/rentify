@@ -105,11 +105,11 @@ export class NewCarComponent implements OnInit {
       ],
       interiorColor: [
         '',
-        [Validators.required, Validators.pattern('^[a-z]*$')],
+        [Validators.required, Validators.pattern('^[a-zA-Z]*$')],
       ],
       exteriorColor: [
         '',
-        [Validators.required, Validators.pattern('^[a-z]*$')],
+        [Validators.required, Validators.pattern('^[a-zA-Z]*$')],
       ],
       price: ['', [Validators.required]],
       mileage: ['', Validators.required],
@@ -123,6 +123,7 @@ export class NewCarComponent implements OnInit {
       transmission: ['', Validators.required],
       locations: ['', Validators.required],
       description: ['', Validators.required],
+      bodyStyle: ['', Validators.required],
       gallery: [''],
 
       prices: this.fb.array([]),
@@ -160,29 +161,33 @@ export class NewCarComponent implements OnInit {
 
   updateCar() {
     this.loading = true;
-    this.uploadFiles()
-      .then((url) => {
-        this.carForm.controls['gallery'].setValue(url);
+    if (this.carForm.valid) {
+      this.uploadFiles()
+        .then((url) => {
+          this.carForm.controls['gallery'].setValue(url);
 
-        this.carService
-          .addCar(this.carForm.value)
-          .then((result) => {
-            this.loading = false;
-            this.notification.success('Success', 'Car data has been added.', {
-              nzPlacement: 'bottomLeft',
+          this.carService
+            .addCar(this.carForm.value)
+            .then((result) => {
+              this.loading = false;
+              this.notification.success('Success', 'Car data has been added.', {
+                nzPlacement: 'bottomLeft',
+              });
+            })
+            .catch((err) => {
+              this.notification.error('Problem!', err.message, {
+                nzPlacement: 'bottomLeft',
+              });
             });
-          })
-          .catch((err) => {
-            this.notification.error('Problem!', err.message, {
-              nzPlacement: 'bottomLeft',
-            });
+        })
+        .catch((err) => {
+          this.notification.error('Problem!', err.message, {
+            nzPlacement: 'bottomLeft',
           });
-      })
-      .catch((err) => {
-        this.notification.error('Problem!', err.message, {
-          nzPlacement: 'bottomLeft',
         });
-      });
+    } else {
+      console.log(this.carForm);
+    }
   }
 
   //New newPrice
@@ -251,6 +256,10 @@ export class NewCarComponent implements OnInit {
 
   get fuelType() {
     return this.carForm.controls['fuelType'];
+  }
+
+  get bodyStyle() {
+    return this.carForm.controls['bodyStyle'];
   }
 
   LocationChange() {
@@ -325,7 +334,7 @@ export class NewCarComponent implements OnInit {
       });
     } else {
       this.carForm.controls['multimedia'].setErrors(null);
-      this.carForm.controls['multimedia'].setValue(this.selectedExterior);
+      this.carForm.controls['multimedia'].setValue(this.selectedmultimedia);
     }
   }
 

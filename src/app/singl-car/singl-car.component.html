@@ -312,7 +312,9 @@
             </li>
           </ul>
           <div class="text-center mt-5">
-            <a href="#" class="btn btn-primary float-none text-center"
+            <a
+              (click)="checkout(car)"
+              class="btn btn-primary float-none text-center"
               >Reserve Now <i class="fa fa-angle-right"></i
             ></a>
           </div>
@@ -399,10 +401,6 @@
               <tr>
                 <td class="label">Interior Color</td>
                 <td class="value">{{ car.interiorColor }}</td>
-              </tr>
-              <tr>
-                <td class="label">Stock</td>
-                <td class="value">{{ car?.id }}</td>
               </tr>
             </tbody>
           </table>

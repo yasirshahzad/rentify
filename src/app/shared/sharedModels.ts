@@ -75,6 +75,7 @@ export interface Order {
   userId: string;
   carId: number;
   orderDate: string;
+  approvalStatus: string;
 
   pickup: Pickup;
   return: Pickup;

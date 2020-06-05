@@ -1,0 +1,14 @@
+.approved {
+  color: green;
+  font-weight: 600;
+}
+
+.pending {
+  color: gray;
+  font-weight: 600;
+}
+
+.archived {
+  color: red;
+  font-weight: 600;
+}

@@ -1,6 +1,6 @@
+import { Extra } from './../shared/sharedModels';
 import { OrdersService } from './../service/orders.service';
 import { UserService } from './../services/login.service';
-import { ModelService } from './../services/model.service';
 import { CarService } from './../services/car.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { map, switchMap } from 'rxjs/operators';
@@ -40,7 +40,6 @@ export class CheckoutComponent implements OnInit {
   error = false;
   constructor(
     private carService: CarService,
-    private modelService: ModelService,
     public loginService: UserService,
     private orderService: OrdersService,
     private modal: NzModalRef,
@@ -54,11 +53,7 @@ export class CheckoutComponent implements OnInit {
       password: [null, [Validators.required]],
     });
 
-    this.uniqueCityList$ = this.modelService.getModels().pipe(
-      map((carList) => {
-        return [...new Set([].concat(...carList.map((car) => car.locations)))];
-      })
-    );
+    this.uniqueCityList$ = this.carService.getLocations();
 
     this.user$ = this.loginService.user$;
   }
@@ -119,8 +114,9 @@ export class CheckoutComponent implements OnInit {
       this.current = 0;
     }
   }
-  changeExtra(extra) {
-    let id = this.extras.findIndex((x) => x.id == extra.id);
+  changeExtra(extra: Extra) {
+    let id = this.extras.findIndex((extras) => extras.name == extra.name);
+    console.log(extra, id);
     if (id == -1) {
       this.extras.push(extra);
     } else {
@@ -178,8 +174,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   loginError: boolean = false;
-
+  isSpinning;
   placeOrder() {
+    this.isSpinning = true;
     if (this.current !== 2) {
       return;
     }
@@ -192,6 +189,7 @@ export class CheckoutComponent implements OnInit {
               orderDate: this.timenow(),
               userId: user.uid,
               carId: this.car.id,
+              status: 'pending',
               pickup: {
                 time: this.pickupTime,
                 date: this.pickUpDate,
@@ -212,6 +210,7 @@ export class CheckoutComponent implements OnInit {
       .subscribe((ref) => {
         ref.on('value', (snapshotChanges) => {
           this.order = { ...snapshotChanges.val(), id: snapshotChanges.key };
+          this.isSpinning = false;
         });
       });
   }

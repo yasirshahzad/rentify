@@ -221,20 +221,31 @@
                 </div>
 
                 <button
-                  type="button"
-                  class="btn btn-primary mb-5"
+                  nz-button
+                  nzType="primary"
+                  class="float-right"
                   (click)="addExtras()"
                 >
                   Add more extra.
                 </button>
               </div>
             </div>
-            <button type="submit" value="submit">Submit</button>
+            <div class="mt-n3 mb-2">
+              <button type="submit" class="mr-1 btn btn-primary" value="submit">
+                Save
+              </button>
+              <a class="mr-1" (click)="approve()">
+                Approve
+              </a>
+              <a (click)="archive()">
+                Archive
+              </a>
+            </div>
           </form>
         </div>
       </div>
-      <!--
-      <div *ngIf="order.user | async as user" class="row">
+
+      <div *ngIf="order?.user | async as user" class="row">
         <div class="col-1">
           <nz-avatar
             [nzShape]="'square'"
@@ -246,7 +257,7 @@
           <h3>{{ user?.name }}</h3>
           <h5 style="font-weight: normal;">{{ user?.email }}</h5>
         </div>
-      </div>--->
+      </div>
     </div>
   </div>
 </nz-spin>

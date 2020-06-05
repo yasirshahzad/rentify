@@ -48,17 +48,14 @@ export class ResetPasswordConfirmComponent implements OnInit {
       }
     });
   }
-  //Recovering email
 
+  //Recovering email
   recoverEmail() {
-    // Localize the UI to the selected language as determined by the lang
-    // parameter.
     let restoredEmail = null;
-    // Confirm the action code is valid.
 
     this.realAuth
       .checkActionCode(this.oobCode)
-      .then(function (info) {
+      .then((info) => {
         // Get the restored email address.
         restoredEmail = info['data']['email'];
 
@@ -70,6 +67,8 @@ export class ResetPasswordConfirmComponent implements OnInit {
         this.message.message = 'Email has been recovered';
       })
       .catch(function (error) {
+        this.message.error = true;
+
         this.message.message = error.message;
       });
   }

@@ -123,9 +123,9 @@
               <nz-slider
                 id="price"
                 [nzMin]="0"
-                [nzMax]="100"
+                [nzMax]="10000"
                 nzRange
-                [nzStep]="10"
+                [nzStep]="1000"
                 [(ngModel)]="priceRange"
                 (ngModelChange)="priceRanteFilter()"
                 [ngModelOptions]="{ standalone: true }"
@@ -140,8 +140,8 @@
                 [(ngModel)]="searchCity"
                 (ngModelChange)="cityFilter()"
                 class="custom-select"
-                name="color"
-                id="color"
+                name="city"
+                id="city"
               >
                 <option value="" selected="">Select one</option>
                 <option
@@ -154,6 +154,7 @@
             <div class="form-group">
               <label for="color">Color</label>
               <select
+                *ngIf="this.availableColor$ | async as colors"
                 [(ngModel)]="color"
                 (ngModelChange)="colorFilter()"
                 class="custom-select"
@@ -161,9 +162,9 @@
                 id="color"
               >
                 <option value="">Select one</option>
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
+                <option *ngFor="let item of colors" [value]="item">{{
+                  item | uppercase
+                }}</option>
               </select>
             </div>
           </form>

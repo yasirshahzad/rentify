@@ -791,6 +791,35 @@
         </div>
       </div>
     </div>
+    <div class="form-row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="bodyStyle">Body Style </label>
+          <select
+            class="form-control"
+            name="bodyStyle"
+            id="bodyStyle"
+            formControlName="bodyStyle"
+          >
+            <option>Sedan</option>
+            <option>SUV</option>
+            <option>Couple</option>
+            <option>Van</option>
+          </select>
+          <div
+            *ngIf="
+              this.bodyStyle.invalid &&
+              (this.bodyStyle.dirty || this.bodyStyle.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="this.bodyStyle.errors.required">
+              Select body type of vehicle.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <button type="submit" class="btn btn-primary">Add</button>
   </form>
 </nz-spin>

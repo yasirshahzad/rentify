@@ -14,15 +14,15 @@
                 <li nzMatchRouter routerLink="/dashboard" nz-menu-item>
                   All Orders
                 </li>
-                <li nz-menu-item nzIcon="plus" routerLink="/fleet">Add new</li>
+                <li routerLink="/fleet" nz-menu-item>Add new</li>
               </ul>
             </li>
-            <li nz-submenu nzIcon="car" nzTitle="Cars">
+            <li *ngIf="user?.isAdmin" nz-submenu nzIcon="car" nzTitle="Cars">
               <ul>
                 <li nzMatchRouter routerLink="/dashboard/cars" nz-menu-item>
-                  All Cars
+                  All Car
                 </li>
-                <li nz-menu-item nzIcon="plus" routerLink="/dashboard/cars/new">
+                <li nzMatchRouter routerLink="/dashboard/cars/new" nz-menu-item>
                   Add new
                 </li>
               </ul>

@@ -1,12 +1,10 @@
 import { FavService } from './../services/fav.service';
 import { CompareService } from './../services/compare.service';
-import { ModelService } from './../services/model.service';
 import { Car } from './../shared/sharedModels';
 import { Observable, Subscription } from 'rxjs';
 import { CarService } from './../services/car.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { take, map, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { take, map } from 'rxjs/operators';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CheckoutComponent } from '../checkout/checkout.component';
@@ -32,19 +30,20 @@ export class FleetComponent implements OnInit, OnDestroy {
   priceRange;
   marks = {
     0: '0',
-    20: '20',
-    40: '40',
-    60: '60',
-    80: '80',
-    100: '100',
+    2000: '2000',
+    4000: '4000',
+    6000: '6000',
+    8000: '8000',
+    10000: '10000',
   };
 
   searchCity = '';
   uniqueCityList$;
   subscription: Subscription;
+  availableColor$;
   constructor(
     private carService: CarService,
-    private modelService: ModelService,
+    private modelService: CarService,
     private compareService: CompareService,
     private notification: NzNotificationService,
     private favService: FavService,
@@ -60,7 +59,7 @@ export class FleetComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.cars$ = this.carService.getCars();
 
-    this.subscription = this.modelService.getModels().subscribe((cars: any) => {
+    this.subscription = this.modelService.getCars().subscribe((cars: Car[]) => {
       let modelss = cars.map((car) => car.brand);
       modelss = [...new Set(modelss)];
       this.models = modelss;
@@ -83,11 +82,8 @@ export class FleetComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.uniqueCityList$ = this.modelService.getModels().pipe(
-      map((carList) => {
-        return [...new Set([].concat(...carList.map((car) => car.locations)))];
-      })
-    );
+    this.uniqueCityList$ = this.modelService.getLocations();
+    this.availableColor$ = this.carService.getColors();
   }
 
   reset() {

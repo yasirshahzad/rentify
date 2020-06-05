@@ -5,15 +5,26 @@
       <th>Order Date</th>
       <th>Pickup Location</th>
       <th>Date Booked</th>
+      <th>Status</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
       <td *ngIf="data?.car | async as car">{{ car?.model }}</td>
-      <td>{{ data.orderDate }}</td>
-      <td>{{ data.pickup?.location }}</td>
-      <td>{{ data.pickup?.date }}</td>
+      <td>{{ data?.orderDate }}</td>
+      <td>{{ data?.pickup?.location }}</td>
+      <td>{{ data?.pickup?.date }}</td>
+      <td>
+        <span
+          [ngClass]="{
+            approved: data?.status === 'approved',
+            pending: data?.status === 'pending',
+            archived: data?.status === 'archived'
+          }"
+          >{{ data?.status | uppercase }}</span
+        >
+      </td>
 
       <td>
         <a [routerLink]="['order', data.key]">View Book</a>

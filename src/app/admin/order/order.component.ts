@@ -1,4 +1,4 @@
-import { Order } from './../../shared/sharedModels';
+import { Order, Extra } from './../../shared/sharedModels';
 import { switchMap, map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../services/login.service';
@@ -46,7 +46,7 @@ export class OrderComponent implements OnInit, OnDestroy {
     return (t2 - t1) / (24 * 3600 * 1000);
   }
 
-  calculateBill(price, prices, extras, returnDate, pickupDate) {
+  calculateBill(price, prices, returnDate, pickupDate, extras?: Extra[]) {
     let bill = 0;
     let totalBill = 0;
     if (this.calculateDays(returnDate, pickupDate) === 1) {

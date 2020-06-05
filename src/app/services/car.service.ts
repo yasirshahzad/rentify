@@ -12,7 +12,7 @@ export class CarService {
   url = environment.API;
   constructor(private http: HttpClient, private db: AngularFireDatabase) {}
 
-  getCars() {
+  getCars(): Observable<Car[]> {
     return this.db
       .list<Car>('/cars/')
       .snapshotChanges()
@@ -49,6 +49,23 @@ export class CarService {
         map((carList) => {
           return [
             ...new Set([].concat(...carList.map((car: Car) => car.locations))),
+          ];
+        })
+      );
+  }
+
+  getColors(): Observable<string[]> {
+    return this.db
+      .list('/cars/')
+      .valueChanges()
+      .pipe(
+        map((carList) => {
+          return [
+            ...new Set(
+              [].concat(
+                ...carList.map((car: Car) => car.exteriorColor.toLowerCase())
+              )
+            ),
           ];
         })
       );

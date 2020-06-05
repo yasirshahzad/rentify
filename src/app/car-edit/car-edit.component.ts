@@ -182,9 +182,11 @@ export class CarEditComponent implements OnInit, OnDestroy {
           },
           locations: car.locations,
           multimedia: car.multimedia,
+          gallery: car.gallery,
         });
 
         this.selectedmultimedia = car.multimedia;
+        console.log(car.multimedia);
         this.selectedLocations = car.locations;
         this.selectedSafety = car.safety;
         this.selectedComfort = car.comfort;
@@ -208,18 +210,22 @@ export class CarEditComponent implements OnInit, OnDestroy {
   }
 
   updateCar() {
-    this.carService
-      .saveCar(this.carForm.value)
-      .then((result) => {
-        this.notification.success('Success', 'Car data has been updated.', {
-          nzPlacement: 'bottomLeft',
+    if (this.carForm.valid) {
+      this.carService
+        .saveCar(this.carForm.value)
+        .then((result) => {
+          this.notification.success('Success', 'Car data has been updated.', {
+            nzPlacement: 'bottomLeft',
+          });
+        })
+        .catch((err) => {
+          this.notification.error('Problem!', err.message, {
+            nzPlacement: 'bottomLeft',
+          });
         });
-      })
-      .catch((err) => {
-        this.notification.error('Problem!', err.message, {
-          nzPlacement: 'bottomLeft',
-        });
-      });
+    } else {
+      console.log(this.carForm);
+    }
   }
 
   setExistingEngineVolume(engine: Engine) {
@@ -374,6 +380,17 @@ export class CarEditComponent implements OnInit, OnDestroy {
     } else {
       this.carForm.controls['interior'].setErrors(null);
       this.carForm.controls['interior'].setValue(this.selectedInterior);
+    }
+  }
+
+  changeMultimedia() {
+    if (this.multimediaOptions.length <= 0) {
+      this.carForm.controls['multimedia'].setErrors({
+        required: 'Please select minimum one multimedia option.',
+      });
+    } else {
+      this.carForm.controls['multimedia'].setErrors(null);
+      this.carForm.controls['multimedia'].setValue(this.selectedmultimedia);
     }
   }
 

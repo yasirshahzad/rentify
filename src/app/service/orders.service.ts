@@ -80,7 +80,6 @@ export class OrdersService {
   }
 
   updateOrder(order, key) {
-    console.log(order);
     return this.db.object('orders/' + order.id).set({
       carId: order.carId,
       extras: order.extras,
@@ -88,6 +87,7 @@ export class OrdersService {
       userId: order.userId,
       pickup: order.pickup,
       return: order.return,
+      status: order.status,
     });
   }
 }
